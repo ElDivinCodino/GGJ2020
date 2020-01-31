@@ -5,34 +5,38 @@ using UnityEngine;
 public class WMSuperRandomSpawner : MonoBehaviour {
 
 	public GameObject[] spawnees;
-    public GameObject[] spawnPoints;
+    public GameObject spawnPoint;
 
     public float radius = 2;
 
     int randomInt;
-    int randomIntTwo;
     Vector3 randomVec;
     Vector2 unitCircle;
     Vector3 unitCircle3d;
+    int rand_forward;
+    int rand_up;
 
     GameObject obj;
 
     void Start() {
-        spawnPoints = GameObject.FindGameObjectsWithTag("spawnPoint");
+        spawnPoint = GameObject.FindGameObjectWithTag("spawnPoint");
     }
     
     // Update is called once per frame
     void Update() {
         if(Input.GetMouseButtonDown(0)) {
-            randomInt = GetRandom(spawnees.Length);
-            randomIntTwo = GetRandom(spawnPoints.Length);
+            randomInt = GetRandom(0,spawnees.Length);
+            rand_forward = GetRandom(100, 400);
+            rand_up = GetRandom(10, 200);
+            //spawnPoint.transform.RotateAround(Vector3.up, GetRandom(0, 180));
+            spawnPoint.transform.Rotate(Vector3.up, GetRandom(0, 180));
             SpawnRandom(1);
             SpawnRandom(-1);
         }
     }
 
-    int GetRandom(int count) {
-        return Random.Range(0, count);
+    int GetRandom(int bottomBound, int upperBound) {
+        return Random.Range(bottomBound, upperBound);
     }
 
     Vector3 GetRandomVector (Vector3 vec) {
@@ -42,8 +46,9 @@ public class WMSuperRandomSpawner : MonoBehaviour {
     }
 
     void SpawnRandom(int sign) {
-        randomVec = GetRandomVector(spawnPoints[randomIntTwo].transform.position);
-        obj = Instantiate(spawnees[randomInt], randomVec, spawnPoints[randomIntTwo].transform.rotation);
-        obj.GetComponent<Rigidbody>().AddForce(sign * transform.forward * 1000);
+        randomVec = GetRandomVector(spawnPoint.transform.position);
+        obj = Instantiate(spawnees[randomInt], randomVec, spawnPoint.transform.rotation);
+        obj.GetComponent<Rigidbody>().AddForce(sign * spawnPoint.transform.forward * rand_forward);
+        obj.GetComponent<Rigidbody>().AddForce(spawnPoint.transform.up * rand_up);
     }
 }

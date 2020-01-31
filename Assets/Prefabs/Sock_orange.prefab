@@ -90,6 +90,7 @@ GameObject:
   - component: {fileID: 9009696544058905042}
   - component: {fileID: -6804655000660536047}
   - component: {fileID: -5437305715469866300}
+  - component: {fileID: 4542643260400310275}
   m_Layer: 0
   m_Name: Sock_orange
   m_TagString: Untagged
@@ -106,7 +107,7 @@ Transform:
   m_GameObject: {fileID: 5427829987281789889}
   m_LocalRotation: {x: -0, y: -0.24923706, z: -0, w: 0.9684425}
   m_LocalPosition: {x: -18.044378, y: 0.050462846, z: -2.636121}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children:
   - {fileID: 2052479329274980512}
   m_Father: {fileID: 0}
@@ -140,4 +141,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cc868079c68f4e6eb81a5aeaaa4be07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeTime: 10
+  lifeTime: 10000
+--- !u!65 &4542643260400310275
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5427829987281789889}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3601691264977751034}
   - component: {fileID: -4073037815819928075}
   - component: {fileID: -1079914212935152073}
+  - component: {fileID: -3597865455723878851}
   m_Layer: 0
   m_Name: Sock_purple
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 549613734628604393}
   m_LocalRotation: {x: -0, y: 0.29977235, z: -0, w: 0.9540108}
   m_LocalPosition: {x: -13.67051, y: 0.050462846, z: 1.5915371}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children:
   - {fileID: 5803107237812908680}
   m_Father: {fileID: 0}
@@ -61,7 +62,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cc868079c68f4e6eb81a5aeaaa4be07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeTime: 10
+  lifeTime: 10000
+--- !u!65 &-3597865455723878851
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 549613734628604393}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4758239571654031876
 GameObject:
   m_ObjectHideFlags: 0
