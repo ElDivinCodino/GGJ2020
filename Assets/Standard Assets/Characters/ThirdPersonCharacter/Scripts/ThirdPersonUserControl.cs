@@ -1,6 +1,8 @@
 using System;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
+using UnityEngine.InputSystem;
+
 
 namespace UnityStandardAssets.Characters.ThirdPerson
 {
@@ -13,7 +15,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         private Vector3 m_Move;
         private bool m_Jump;                      // the world-relative desired move direction, calculated from the camForward and user input.
 
-        
+
         private void Start()
         {
             // get the transform of the main camera
@@ -39,6 +41,15 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             {
                 m_Jump = CrossPlatformInputManager.GetButtonDown("Jump");
             }
+            bool rightBumper = Input.GetButton("Right Bumper");
+            if (rightBumper) {
+                // throw right sock
+            }
+            bool leftBumper = Input.GetButton("Left Bumper");
+            if (leftBumper) {
+                // throw left sock
+            }
+
         }
 
 
@@ -47,8 +58,16 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         {
             // read inputs
             float h = CrossPlatformInputManager.GetAxis("Horizontal");
+            // float h = move.x;
             float v = CrossPlatformInputManager.GetAxis("Vertical");
-            bool crouch = Input.GetKey(KeyCode.C);
+            // float v = move.y;
+            // bool crouch = Input.GetKey(KeyCode.C);
+            
+            //Debug.Log("Left Trigger: " + leftTrigger);
+            
+            //bool crouch = false;
+            
+            // controls.PlayerControls.PickUp.performed += ctx => crouch = ctx.ReadValues<bool>();
 
             // calculate move direction to pass to character
             if (m_Cam != null)
@@ -68,8 +87,9 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 #endif
 
             // pass all parameters to the character control script
-            m_Character.Move(m_Move, crouch, m_Jump);
+            m_Character.Move(m_Move, false, m_Jump);
             m_Jump = false;
         }
+        
     }
 }
