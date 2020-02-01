@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spawner : MonoBehaviour
+public class StuffSpawner : MonoBehaviour
 {
     public GameObject[] cubes;
 
     //Limite positivo e negativo per lo spawn di oggetti, rispetto a 0,0 (board di 10x10, posmin = -5, posmax = 5)
-    public float posMin, posMax;
+    public float posMin, posMax, spawnHeight;
 
     //Massimo e minimo di oggetti da spawnare
     public int toSpawnMin, toSpawnMax;
@@ -43,7 +43,7 @@ public class Spawner : MonoBehaviour
 
     Vector3 randomPosition ()
     {
-        return new Vector3(Mathf.Round(Random.Range(posMin, posMax)), 1, Mathf.Round(Random.Range(posMin, posMax)));
+        return new Vector3(Mathf.Round(Random.Range(posMin, posMax)), spawnHeight, Mathf.Round(Random.Range(posMin, posMax)));
     }
 
     ////Versione con aggiornamento periodico

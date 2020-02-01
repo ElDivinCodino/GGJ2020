@@ -6,6 +6,7 @@ public class RoombaAI : MonoBehaviour
     public Transform[] destinations;
     public Transform body;
     public float speedRotation;
+    public float indecisionSeconds;
 
     NavMeshAgent navMeshAgent;
     bool isMoving = false;
@@ -13,7 +14,7 @@ public class RoombaAI : MonoBehaviour
     void Start()
     {
         navMeshAgent = this.GetComponent<NavMeshAgent>();
-        InvokeRepeating("SetDestination", 0f, 1.7f);
+        InvokeRepeating("SetDestination", 0f, indecisionSeconds);
     }
 
     private void Update()
@@ -34,4 +35,14 @@ public class RoombaAI : MonoBehaviour
             isMoving = true;
         }
     }
+
+    void OnCollisionEnter(Collision col)
+    {
+        if (col.gameObject.name != "Roomba Agent" && col.gameObject.name != "Floor" && col.gameObject.name != "Floor2")
+        {
+            //Destroy(col.gameObject);
+            col.gameObject.GetComponent<Rigidbody>().AddForce(col.gameObject.transform.up * 250);
+        }
+    }
+
 }

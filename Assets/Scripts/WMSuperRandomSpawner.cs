@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WMSuperRandomSpawner : MonoBehaviour {
 
-	public GameObject[] spawnees;
+    public GameObject[] spawnees;
     public GameObject spawnPoint;
 
     public int max_socks = 10;

@@ -2,6 +2,9 @@ using UnityEngine.Audio;
 using System;
 using UnityEngine;
 
+// how to use:
+// FindObjectOfType<AudioManager>().Play("nameOfSound")
+
 public class AudioManager : MonoBehaviour
 {
 
