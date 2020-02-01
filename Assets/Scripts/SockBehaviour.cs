@@ -5,8 +5,8 @@ using UnityEngine.InputSystem;
 
 public class SockBehaviour : MonoBehaviour
 {
-    private GameObject leftSock;
-    private GameObject rightSock;
+    public GameObject leftSock;
+    public GameObject rightSock;
 
     private float leftTrigger;
     private float rightTrigger;
@@ -151,7 +151,7 @@ public class SockBehaviour : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter(Collision other)
+    private void OnCollisionStay(Collision other)
     {
         if(leftTriggerInput == "Left Trigger" && rightTriggerInput == "Right Trigger")
         {
@@ -165,18 +165,33 @@ public class SockBehaviour : MonoBehaviour
         }
         if (other.gameObject.tag == "Sock")
         {
-            // Debug.Log("collider works");
-            // Debug.Log("Left Trigger: " + leftTrigger);
-            if (leftTrigger == 1 && !isCarryingLeft())
+            // If grounded
+            if(other.gameObject.transform.position.y < 0)
             {
-                leftSock = other.gameObject;
-                GetComponent<Animator>().SetTrigger("PickUpLeft");
-            }
-            if (rightTrigger == 1 && !isCarryingRight())
-            {
-                rightSock = other.gameObject;
-                GetComponent<Animator>().SetTrigger("PickUpRight");
+                // Debug.Log("collider works");
+                // Debug.Log("Left Trigger: " + leftTrigger);
+                if (leftTrigger == 1 && !isCarryingLeft())
+                {
+                    leftSock = other.gameObject;
+                    GetComponent<Animator>().SetTrigger("PickUpLeft");
+                }
+                if (rightTrigger == 1 && !isCarryingRight())
+                {
+                    rightSock = other.gameObject;
+                    GetComponent<Animator>().SetTrigger("PickUpRight");
 
+                }
+            }
+            else
+            {
+                if (leftSock != null && isCarryingLeft() && other.gameObject != leftSock && other.gameObject != rightSock)
+                {
+                    dropSock(leftSock);
+                }
+                if (rightSock != null && isCarryingRight() && other.gameObject != leftSock && other.gameObject != rightSock)
+                {
+                    dropSock(rightSock);
+                }
             }
 
         }

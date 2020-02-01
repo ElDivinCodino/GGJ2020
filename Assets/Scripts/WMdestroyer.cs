@@ -33,7 +33,7 @@ public class WMdestroyer : MonoBehaviour
         }
     }
 
-    void Destruction()
+    public void Destruction()
     {
         Destroy(this.gameObject);
     }
