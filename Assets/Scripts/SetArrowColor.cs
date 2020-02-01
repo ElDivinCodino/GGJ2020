@@ -4,21 +4,33 @@ using UnityEngine;
 
 public class SetArrowColor : MonoBehaviour
 {
-    // Start is called before the first frame update
     void Start()
     {
+
         if (transform.parent)
         {
             Material mat = transform.parent.GetComponentInChildren<MeshRenderer>().materials[0];
 
-            Debug.Log(mat.name);
-
             foreach (Transform child in transform)
             {
-                Debug.Log(child.gameObject.name);
                 child.GetComponent<Renderer>().material = mat;
+                child.GetComponent<Renderer>().enabled = false;
             }
-                //.materials[0] = mat;
+
+            StartCoroutine(Appear());
+        }
+    }
+
+    IEnumerator Appear()
+    {
+        yield return new WaitForSeconds(3);
+
+        if (Vector3.Angle(transform.up, Vector3.up) < 90)
+            transform.RotateAround(transform.parent.position, Vector3.right, 180);
+
+        foreach (Transform child in transform)
+        {
+            child.GetComponent<Renderer>().enabled = true;
         }
     }
 }
