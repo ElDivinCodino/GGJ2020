@@ -54,8 +54,6 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             {
                 m_Jump = CrossPlatformInputManager.GetButtonDown("Jump");
             }
-<<<<<<< Updated upstream
-=======
             bool rightBumper = Input.GetButton("Right Bumper");
             if (rightBumper) {
                 // throw right sock
@@ -64,7 +62,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             if (leftBumper) {
                 // throw left sock
             }
->>>>>>> Stashed changes
+
         }
 
 
@@ -73,10 +71,6 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         {
             // read inputs
             float h = CrossPlatformInputManager.GetAxis("Horizontal");
-<<<<<<< Updated upstream
-            float v = CrossPlatformInputManager.GetAxis("Vertical");
-            bool crouch = Input.GetKey(KeyCode.C);
-=======
             // float h = move.x;
             float v = CrossPlatformInputManager.GetAxis("Vertical");
             // float v = move.y;
@@ -89,7 +83,6 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                 crouch = true;
             }
             // controls.PlayerControls.PickUp.performed += ctx => crouch = ctx.ReadValues<bool>();
->>>>>>> Stashed changes
 
             // calculate move direction to pass to character
             if (m_Cam != null)
