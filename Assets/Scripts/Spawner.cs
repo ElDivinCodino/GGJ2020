@@ -6,8 +6,8 @@ public class Spawner : MonoBehaviour
 {
     public GameObject[] cubes;
 
-    float posMin, posMax;
-    int toSpawnMin, toSpawnMax, maxElements, seconds, centralArea;
+    public float posMin, posMax;
+    public int toSpawnMin, toSpawnMax, maxElements, seconds, centralArea;
     //Vector3[] spawnvalues;
 
     List<GameObject> spawned;

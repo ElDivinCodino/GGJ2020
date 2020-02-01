@@ -3,8 +3,7 @@ using UnityEngine.AI;
 
 public class RoombaAI : MonoBehaviour
 {
-    //[SerializeField]
-    public Transform destination;
+    public Transform[] destinations;
     public Transform body;
     public float speedRotation;
 
@@ -14,7 +13,7 @@ public class RoombaAI : MonoBehaviour
     void Start()
     {
         navMeshAgent = this.GetComponent<NavMeshAgent>();
-        SetDestination();
+        InvokeRepeating("SetDestination", 0f, 1.7f);
     }
 
     private void Update()
@@ -27,6 +26,7 @@ public class RoombaAI : MonoBehaviour
 
     private void SetDestination()
     {
+        Transform destination = destinations[Random.Range(0, destinations.Length)];
         if (destination != null) {
             Vector3 targetVector = destination.transform.position;
             navMeshAgent.SetDestination(targetVector);
