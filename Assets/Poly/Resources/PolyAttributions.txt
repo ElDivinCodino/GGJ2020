@@ -30,9 +30,9 @@ URL: https://poly.google.com/view/3CZnTJZTcRO
 License: Creative Commons CC-BY
 https://creativecommons.org/licenses/by/3.0/legalcode
 
-Title: Camaro ZL1 2017
-Author: Kris Tong
-URL: https://poly.google.com/view/7bF7UVAoYRG
+Title: Cartoon Clouds
+Author: Matt Hoffman
+URL: https://poly.google.com/view/7ZVrjkW-VIF
 License: Creative Commons CC-BY
 https://creativecommons.org/licenses/by/3.0/legalcode
 
@@ -108,9 +108,9 @@ URL: https://poly.google.com/view/5WERTPcyIMn
 License: Creative Commons CC-BY
 https://creativecommons.org/licenses/by/3.0/legalcode
 
-Title: SNES
-Author: Gabriel Valdivia
-URL: https://poly.google.com/view/7yVvvpp-ftQ
+Title: smoke
+Author: VfxFun
+URL: https://poly.google.com/view/aPhYQtdfhte
 License: Creative Commons CC-BY
 https://creativecommons.org/licenses/by/3.0/legalcode
 
@@ -126,14 +126,8 @@ URL: https://poly.google.com/view/3fTwIG4NTg3
 License: Creative Commons CC-BY
 https://creativecommons.org/licenses/by/3.0/legalcode
 
-Title: Window
-Author: Justin Randall
-URL: https://poly.google.com/view/dwBpM-aSA_t
-License: Creative Commons CC-BY
-https://creativecommons.org/licenses/by/3.0/legalcode
-
-Title: x-wing
-Author: Alberto Calvo
-URL: https://poly.google.com/view/d6Xadlg51aC
+Title: Wooden door
+Author: CAT Games
+URL: https://poly.google.com/view/6rJysOR82qu
 License: Creative Commons CC-BY
 https://creativecommons.org/licenses/by/3.0/legalcode
