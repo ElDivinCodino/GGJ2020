@@ -6,6 +6,7 @@ public class WMSuperRandomSpawner : MonoBehaviour {
 
     public GameObject[] spawnees;
     public GameObject spawnPoint;
+    public Animator anim;
 
     public int max_socks = 10;
 
@@ -50,6 +51,7 @@ public class WMSuperRandomSpawner : MonoBehaviour {
             spawnPoint.transform.Rotate(Vector3.up, GetRandom(0, 180));
             SpawnRandom(1);
             SpawnRandom(-1);
+            //anim.SetTrigger("Shoot");
         }
     }
 
