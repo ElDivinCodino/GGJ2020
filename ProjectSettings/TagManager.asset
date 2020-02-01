@@ -6,6 +6,7 @@ TagManager:
   tags:
   - spawnPoint
   - Sock
+  - Basket
   layers:
   - Default
   - TransparentFX
