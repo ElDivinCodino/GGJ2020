@@ -69,11 +69,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			}
 
 			ScaleCapsuleForCrouching(crouch);
-<<<<<<< Updated upstream
-			PreventStandingInLowHeadroom();
-=======
+
 			// PreventStandingInLowHeadroom();
->>>>>>> Stashed changes
 
 			// send input and other state parameters to the animator
 			UpdateAnimator(move);

@@ -1,10 +1,8 @@
 using System;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
-<<<<<<< Updated upstream
-=======
 using UnityEngine.InputSystem;
->>>>>>> Stashed changes
+
 
 namespace UnityStandardAssets.Characters.ThirdPerson
 {
@@ -17,9 +15,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         private Vector3 m_Move;
         private bool m_Jump;                      // the world-relative desired move direction, calculated from the camForward and user input.
 
-<<<<<<< Updated upstream
-        
-=======
+
         private Vector2 move;
         // PlayerControls controls;
         void Awake() {
@@ -28,7 +24,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             // controls.PlayerControls.Move.performed += ctx => move = ctx.ReadValues<Vector2>();
 
         }
->>>>>>> Stashed changes
+
         private void Start()
         {
             // get the transform of the main camera
