@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 010383cd0daa040dd9d20ac7b88996eb
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - cilinder: {fileID: 7015957100543271404, guid: eeeea9f79a629476ca7efda8b5ec4f87,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
