@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class SockBehaviour : MonoBehaviour
 {
@@ -25,11 +26,22 @@ public class SockBehaviour : MonoBehaviour
     public GameObject leftHand;
     public GameObject rightHand;
 
+
+
+
     // Start is called before the first frame update
     void Start()
     {
+        controls = new Controls();
     }
-
+    private void OnEnable()
+    {
+        controls.Enable();
+    }
+    private void OnDisable()
+    {
+        controls.Disable();
+    }
     // Update is called once per frame
     void Update()
     {
