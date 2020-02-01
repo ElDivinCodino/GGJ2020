@@ -16,19 +16,19 @@
 | 1       | speed increase (set the new speed)                           | speed decrease (set the speed to a low value)                |
 | 2       | firing range extended (`setForce` 's value increased)        | cannot throw socks (socks "thrown" with zero force aka "fall to the ground") |
 | 3       | cannot be hit (temporarily disable collider)                 | cannot pick socks (I guess we need a "can pick" bool)        |
-| 4       | floats aka "able to walk through walls" (change player's layer) | cannot move (zeroing movements' forces)                      |
+| 4       | floats aka "able to walk through walls" (change player's layer) |  (zeroing movements' forces)                      |
 | 5       | ??                                                           | changes player socks' color (does it break the game?)        |
 
 
 
-Bonus 1: okay
-Malus 1: malus 4
+Bonus 1: speed increase
+Malus 1: cannot move
 
-Bonus 2: okay
-Malus 2: okay
+Bonus 2: firing range extended
+Malus 2: cannot throw socks
 
 Bonus 3: if hit lose only one sock
-Malus 3: okay
+Malus 3: cannot pick socks
 
 Bonus 4: double jump
 Malus 4: can walk only crouch
