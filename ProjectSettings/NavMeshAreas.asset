@@ -13,7 +13,7 @@ NavMeshProjectSettings:
     cost: 2
   - name: 
     cost: 1
-  - name: 
+  - name: User
     cost: 1
   - name: 
     cost: 1
@@ -69,13 +69,13 @@ NavMeshProjectSettings:
     cost: 1
   - name: 
     cost: 1
-  m_LastAgentTypeID: -887442657
+  m_LastAgentTypeID: -1372625422
   m_Settings:
   - serializedVersion: 2
     agentTypeID: 0
     agentRadius: 0.5
-    agentHeight: 2
-    agentSlope: 45
+    agentHeight: 0.2
+    agentSlope: 7.9
     agentClimb: 0.75
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
@@ -88,4 +88,4 @@ NavMeshProjectSettings:
     debug:
       m_Flags: 0
   m_SettingNames:
-  - Humanoid
+  - Roomba
