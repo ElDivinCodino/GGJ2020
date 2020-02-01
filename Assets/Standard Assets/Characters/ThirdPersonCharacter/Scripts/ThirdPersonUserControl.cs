@@ -1,6 +1,10 @@
 using System;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
+<<<<<<< Updated upstream
+=======
+using UnityEngine.InputSystem;
+>>>>>>> Stashed changes
 
 namespace UnityStandardAssets.Characters.ThirdPerson
 {
@@ -13,7 +17,18 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         private Vector3 m_Move;
         private bool m_Jump;                      // the world-relative desired move direction, calculated from the camForward and user input.
 
+<<<<<<< Updated upstream
         
+=======
+        private Vector2 move;
+        // PlayerControls controls;
+        void Awake() {
+            // controls = new PlayerControls();
+
+            // controls.PlayerControls.Move.performed += ctx => move = ctx.ReadValues<Vector2>();
+
+        }
+>>>>>>> Stashed changes
         private void Start()
         {
             // get the transform of the main camera
@@ -39,6 +54,17 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             {
                 m_Jump = CrossPlatformInputManager.GetButtonDown("Jump");
             }
+<<<<<<< Updated upstream
+=======
+            bool rightBumper = Input.GetButton("Right Bumper");
+            if (rightBumper) {
+                // throw right sock
+            }
+            bool leftBumper = Input.GetButton("Left Bumper");
+            if (leftBumper) {
+                // throw left sock
+            }
+>>>>>>> Stashed changes
         }
 
 
@@ -47,8 +73,23 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         {
             // read inputs
             float h = CrossPlatformInputManager.GetAxis("Horizontal");
+<<<<<<< Updated upstream
             float v = CrossPlatformInputManager.GetAxis("Vertical");
             bool crouch = Input.GetKey(KeyCode.C);
+=======
+            // float h = move.x;
+            float v = CrossPlatformInputManager.GetAxis("Vertical");
+            // float v = move.y;
+            // bool crouch = Input.GetKey(KeyCode.C);
+            float leftTrigger = Input.GetAxis("Left Trigger");
+            float rightTrigger = Input.GetAxis("Right Trigger");
+            
+            bool crouch = false;
+            if (leftTrigger > 0 || rightTrigger > 0) {
+                crouch = true;
+            }
+            // controls.PlayerControls.PickUp.performed += ctx => crouch = ctx.ReadValues<bool>();
+>>>>>>> Stashed changes
 
             // calculate move direction to pass to character
             if (m_Cam != null)
