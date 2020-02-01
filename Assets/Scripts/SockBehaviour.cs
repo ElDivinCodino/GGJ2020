@@ -13,6 +13,11 @@ public class SockBehaviour : MonoBehaviour
     private bool leftBumperPressed;
     private bool rightBumperPressed;
 
+    public string leftBumperInput = "Left Bumper";
+    public string rightBumperInput = "Right Bumper";
+    public string leftTriggerInput = "Left Trigger";
+    public string rightTriggerInput = "Right Trigger";
+
 
     public float upForce;
     public float forwardForce;
@@ -28,15 +33,34 @@ public class SockBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        leftTrigger = Input.GetAxis("Left Trigger");
-        rightTrigger = Input.GetAxis("Right Trigger");
+        if (leftTriggerInput == "Left Trigger" && rightTriggerInput == "Right Trigger")
+        {
+            leftTrigger = Input.GetAxis(leftTriggerInput);
+            rightTrigger = Input.GetAxis(rightTriggerInput);
+        }
+        else
+        {
+            leftTrigger = System.Convert.ToSingle(Input.GetKey(KeyCode.J));
+            rightTrigger = System.Convert.ToSingle(Input.GetKey(KeyCode.K));
+            if(leftTrigger == 0)
+            {
+                leftTrigger = -1;
+            }
+            if (rightTrigger == 0)
+            {
+                rightTrigger = -1;
+            }
+        }
 
         //if (leftTrigger > 0 || rightTrigger > 0)
         //{
         //    // Debug.Log("triggers work");
         //}
+
         if (rightSock != null && rightTrigger == -1)
         {
+            Debug.Log("rightSock " + rightSock);
+            Debug.Log("rightTrigger " + rightTrigger);
             Debug.Log("Dropping right sock");
             dropSock(rightSock);
             rightSock = null;
@@ -44,6 +68,8 @@ public class SockBehaviour : MonoBehaviour
 
         if (leftSock != null && leftTrigger == -1)
         {
+            Debug.Log("leftSock " + leftSock);
+            Debug.Log("leftTrigger " + leftTrigger);
             Debug.Log("Dropping sock");
             dropSock(leftSock);
             leftSock = null;
@@ -51,22 +77,49 @@ public class SockBehaviour : MonoBehaviour
         if (isCarryingLeft())
         {
             //Debug.Log(leftSock);
-            if (Input.GetButton("Left Bumper") && !leftBumperPressed)
+            if(leftBumperInput == "Left Bumper")
             {
-                leftBumperPressed = true;
-                Debug.Log("Left Bumper!");
-                GetComponent<Animator>().SetTrigger("ThrowLeft");
+                if (Input.GetButton(leftBumperInput) && !leftBumperPressed)
+                {
+                    leftBumperPressed = true;
+                    Debug.Log("Left Bumper!");
+                    GetComponent<Animator>().SetTrigger("ThrowLeft");
 
+                }
+            }
+            else
+            {
+                if (Input.GetKey(KeyCode.H) && !leftBumperPressed)
+                {
+                    leftBumperPressed = true;
+                    Debug.Log("Left Bumper!");
+                    GetComponent<Animator>().SetTrigger("ThrowLeft");
+
+                }
             }
         }
         if (isCarryingRight())
         {
             //Debug.Log(rightSock);
-            if (Input.GetButton("Right Bumper") && !rightBumperPressed)
+            if (rightBumperInput == "Right Bumper")
             {
-                rightBumperPressed = true;
-                Debug.Log("Right Bumper!");
-                GetComponent<Animator>().SetTrigger("ThrowRight");
+                if (Input.GetButton(rightBumperInput) && !rightBumperPressed)
+                {
+                    rightBumperPressed = true;
+                    Debug.Log("Right Bumper!");
+                    GetComponent<Animator>().SetTrigger("ThrowRight");
+
+                }
+            }
+            else
+            {
+                if (Input.GetKey(KeyCode.L) && !rightBumperPressed)
+                {
+                    rightBumperPressed = true;
+                    Debug.Log("Right Bumper!");
+                    GetComponent<Animator>().SetTrigger("ThrowRight");
+
+                }
             }
         }
 
@@ -88,8 +141,16 @@ public class SockBehaviour : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        leftTrigger = Input.GetAxis("Left Trigger");
-        rightTrigger = Input.GetAxis("Right Trigger");
+        if(leftTriggerInput == "Left Trigger" && rightTriggerInput == "Right Trigger")
+        {
+            leftTrigger = Input.GetAxis(leftTriggerInput);
+            rightTrigger = Input.GetAxis(rightTriggerInput);
+        }
+        else
+        {
+            leftTrigger = System.Convert.ToSingle(Input.GetKey(KeyCode.J));
+            rightTrigger = System.Convert.ToSingle(Input.GetKey(KeyCode.K));
+        }
         if (other.gameObject.tag == "Sock")
         {
             // Debug.Log("collider works");

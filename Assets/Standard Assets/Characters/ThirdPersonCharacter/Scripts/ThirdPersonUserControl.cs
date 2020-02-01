@@ -15,6 +15,12 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         private Vector3 m_Move;
         private bool m_Jump;                      // the world-relative desired move direction, calculated from the camForward and user input.
 
+        public string leftBumperInput = "Left Bumper";
+        public string rightBumperInput = "Right Bumper";
+        public string leftTriggerInput = "Left Trigger";
+        public string rightTriggerInput = "Right Trigger";
+        public string horizontalInput = "Horizontal";
+        public string verticalInput = "Vertical";
 
         private void Start()
         {
@@ -41,11 +47,11 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             {
                 m_Jump = CrossPlatformInputManager.GetButtonDown("Jump");
             }
-            bool rightBumper = Input.GetButton("Right Bumper");
+            bool rightBumper = Input.GetButton(rightBumperInput);
             if (rightBumper) {
                 // throw right sock
             }
-            bool leftBumper = Input.GetButton("Left Bumper");
+            bool leftBumper = Input.GetButton(leftBumperInput);
             if (leftBumper) {
                 // throw left sock
             }
@@ -57,9 +63,9 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         private void FixedUpdate()
         {
             // read inputs
-            float h = CrossPlatformInputManager.GetAxis("Horizontal");
+            float h = CrossPlatformInputManager.GetAxis(horizontalInput);
             // float h = move.x;
-            float v = CrossPlatformInputManager.GetAxis("Vertical");
+            float v = CrossPlatformInputManager.GetAxis(verticalInput);
             // float v = move.y;
             // bool crouch = Input.GetKey(KeyCode.C);
             
