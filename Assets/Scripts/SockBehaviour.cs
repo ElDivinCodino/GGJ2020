@@ -1,7 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityStandardAssets.Characters.ThirdPerson; //sockPowers (Toto)
 
 public class SockBehaviour : MonoBehaviour
 {
@@ -26,8 +28,32 @@ public class SockBehaviour : MonoBehaviour
     public GameObject leftHand;
     public GameObject rightHand;
 
+    //sockPowers (Toto)
+    float malusDuration=3.0f;
+    private IEnumerator coroutine;
 
+    String sockSpeed="Sock_yellow(Clone)"; //speed handling
+    float peakSpeed=5f;
 
+    /*Sock_blue
+    Sock_pink
+    Sock_yellow
+    Sock_green
+    Sock_red*/
+
+    //coroutines
+    IEnumerator slowDown()
+    {
+        yield return new WaitForSeconds(malusDuration);
+        GetComponent<ThirdPersonCharacter>().setSpeed(1f);
+        Debug.Log("speed restored");
+    }
+    IEnumerator GOSH()
+    {
+        yield return new WaitForSeconds(3f);
+        GetComponent<ThirdPersonCharacter>().setSpeed(10f);
+        Debug.Log("GOSH");
+    }
 
     //// Start is called before the first frame update
     //void Start()
@@ -134,7 +160,6 @@ public class SockBehaviour : MonoBehaviour
                 }
             }
         }
-
     }
     void dropSock(GameObject sock)
     {
@@ -147,6 +172,13 @@ public class SockBehaviour : MonoBehaviour
         rb.isKinematic = false;
         //sock.transform.position = sockPosition;
         sock.GetComponent<BoxCollider>().enabled = true;
+        
+        //sockPowers (Toto)
+        Debug.Log("Dropped : "+sock.name);
+        if (System.String.Equals(sock.name, sockSpeed)){
+            Debug.Log("speed restored");
+            GetComponent<ThirdPersonCharacter>().setSpeed(1f);
+        }
 
 
     }
@@ -192,9 +224,23 @@ public class SockBehaviour : MonoBehaviour
                 {
                     dropSock(rightSock);
                 }
-            }
 
+                //sockPowers (Toto)
+                if(other.gameObject.transform.position.y > 0.5){
+                    Debug.Log("Dropped : "+other.gameObject.name);
+                    if (System.String.Equals(other.gameObject.name, sockSpeed)){
+                        Debug.Log("speed zeroed");
+                        GetComponent<ThirdPersonCharacter>().setSpeed(0f);
+                        coroutine = slowDown();
+                        StartCoroutine(coroutine);
+                    }
+                }
+            }
+            
+            
         }
+        
+        
     }
 
     void throwLeftSock()
@@ -259,7 +305,17 @@ public class SockBehaviour : MonoBehaviour
         sock.localRotation = Quaternion.Euler(rotation);
         rb.velocity = Vector3.zero;
 
-        GetComponent<Animator>().SetBool(carrying, true);
+        GetComponent<Animator>().SetBool(carrying, true);      
+        
+        //sockPowers (Toto)
+        Debug.Log("Picked : "+sock.name);
+        if (System.String.Equals(sock.name, sockSpeed)){
+            Debug.Log("speed increase");
+            GetComponent<ThirdPersonCharacter>().setSpeed(peakSpeed);
+            
+                coroutine = GOSH();
+                StartCoroutine(coroutine);
+        }
     }
 
     public bool isCarryingLeft()
