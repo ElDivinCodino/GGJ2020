@@ -21,6 +21,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         public string rightTriggerInput = "Right Trigger";
         public string horizontalInput = "Horizontal";
         public string verticalInput = "Vertical";
+        public string jumpInput = "Jump";
 
         private void Start()
         {
@@ -45,7 +46,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         {
             if (!m_Jump)
             {
-                m_Jump = CrossPlatformInputManager.GetButtonDown("Jump");
+                m_Jump = CrossPlatformInputManager.GetButtonDown(jumpInput);
             }
             bool rightBumper = Input.GetButton(rightBumperInput);
             if (rightBumper) {

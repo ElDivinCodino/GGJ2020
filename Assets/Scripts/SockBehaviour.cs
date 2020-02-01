@@ -29,19 +29,19 @@ public class SockBehaviour : MonoBehaviour
 
 
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        controls = new Controls();
-    }
-    private void OnEnable()
-    {
-        controls.Enable();
-    }
-    private void OnDisable()
-    {
-        controls.Disable();
-    }
+    //// Start is called before the first frame update
+    //void Start()
+    //{
+    //    controls = new Controls();
+    //}
+    //private void OnEnable()
+    //{
+    //    controls.Enable();
+    //}
+    //private void OnDisable()
+    //{
+    //    controls.Disable();
+    //}
     // Update is called once per frame
     void Update()
     {
