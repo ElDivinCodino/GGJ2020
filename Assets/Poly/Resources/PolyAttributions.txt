@@ -12,6 +12,12 @@ URL: https://poly.google.com/view/3CZnTJZTcRO
 License: Creative Commons CC-BY
 https://creativecommons.org/licenses/by/3.0/legalcode
 
+Title: Cartoon Clouds
+Author: Matt Hoffman
+URL: https://poly.google.com/view/7ZVrjkW-VIF
+License: Creative Commons CC-BY
+https://creativecommons.org/licenses/by/3.0/legalcode
+
 Title: Clothes dryer
 Author: Poly by Google
 URL: https://poly.google.com/view/dLHM5WUYVGA
@@ -36,6 +42,12 @@ URL: https://poly.google.com/view/5WERTPcyIMn
 License: Creative Commons CC-BY
 https://creativecommons.org/licenses/by/3.0/legalcode
 
+Title: smoke
+Author: VfxFun
+URL: https://poly.google.com/view/aPhYQtdfhte
+License: Creative Commons CC-BY
+https://creativecommons.org/licenses/by/3.0/legalcode
+
 Title: TIME HOTEL 4.23
 Author: S. Paul Michael
 URL: https://poly.google.com/view/6x24Z7NV6dW
@@ -45,5 +57,11 @@ https://creativecommons.org/licenses/by/3.0/legalcode
 Title: Toilet paper roll
 Author: Poly by Google
 URL: https://poly.google.com/view/3fTwIG4NTg3
+License: Creative Commons CC-BY
+https://creativecommons.org/licenses/by/3.0/legalcode
+
+Title: Wooden door
+Author: CAT Games
+URL: https://poly.google.com/view/6rJysOR82qu
 License: Creative Commons CC-BY
 https://creativecommons.org/licenses/by/3.0/legalcode
