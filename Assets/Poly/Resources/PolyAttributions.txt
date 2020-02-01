@@ -6,9 +6,33 @@ URL: https://poly.google.com/view/8vVKgLRyRYe
 License: Creative Commons CC-BY
 https://creativecommons.org/licenses/by/3.0/legalcode
 
+Title: 80s Car
+Author: Nick Ladd
+URL: https://poly.google.com/view/7tPSW5UYD20
+License: Creative Commons CC-BY
+https://creativecommons.org/licenses/by/3.0/legalcode
+
+Title: Backpack
+Author: Alex “SAFFY” Safayan
+URL: https://poly.google.com/view/5UQVd1Agl11
+License: Creative Commons CC-BY
+https://creativecommons.org/licenses/by/3.0/legalcode
+
+Title: Book Stack
+Author: Danny Bittman
+URL: https://poly.google.com/view/1WggoIFq8tx
+License: Creative Commons CC-BY
+https://creativecommons.org/licenses/by/3.0/legalcode
+
 Title: Broom
 Author: Poly by Google
 URL: https://poly.google.com/view/3CZnTJZTcRO
+License: Creative Commons CC-BY
+https://creativecommons.org/licenses/by/3.0/legalcode
+
+Title: Camaro ZL1 2017
+Author: Kris Tong
+URL: https://poly.google.com/view/7bF7UVAoYRG
 License: Creative Commons CC-BY
 https://creativecommons.org/licenses/by/3.0/legalcode
 
@@ -24,15 +48,69 @@ URL: https://poly.google.com/view/dam5c-OPC8w
 License: Creative Commons CC-BY
 https://creativecommons.org/licenses/by/3.0/legalcode
 
+Title: Couch
+Author: Poly by Google
+URL: https://poly.google.com/view/4QKlmmd0v2b
+License: Creative Commons CC-BY
+https://creativecommons.org/licenses/by/3.0/legalcode
+
+Title: Couch | Wde
+Author: Danny Bittman
+URL: https://poly.google.com/view/7Q_Ab2HLll1
+License: Creative Commons CC-BY
+https://creativecommons.org/licenses/by/3.0/legalcode
+
+Title: Fish Tank 🎏
+Author: Chris Ross
+URL: https://poly.google.com/view/2Rb9zxgkDEM
+License: Creative Commons CC-BY
+https://creativecommons.org/licenses/by/3.0/legalcode
+
+Title: glTFOrglTF ch pre agave 13 P
+Author: Robert Mark
+URL: https://poly.google.com/view/bZQK43-T7fQ
+License: Creative Commons CC-BY
+https://creativecommons.org/licenses/by/3.0/legalcode
+
+Title: Office Chair
+Author: Ryan Donaldson
+URL: https://poly.google.com/view/3txPAhYeu-x
+License: Creative Commons CC-BY
+https://creativecommons.org/licenses/by/3.0/legalcode
+
+Title: old time tv
+Author: Jeff Larson (Larson's ID/Tech Channel)
+URL: https://poly.google.com/view/7-dgp0L8elg
+License: Creative Commons CC-BY
+https://creativecommons.org/licenses/by/3.0/legalcode
+
 Title: Paper towels
 Author: Poly by Google
 URL: https://poly.google.com/view/6Uk9nb8jRag
 License: Creative Commons CC-BY
 https://creativecommons.org/licenses/by/3.0/legalcode
 
+Title: Phone
+Author: Alex “SAFFY” Safayan
+URL: https://poly.google.com/view/1L9oJAw6nY2
+License: Creative Commons CC-BY
+https://creativecommons.org/licenses/by/3.0/legalcode
+
+Title: R2-D2
+Author: Eric Finn
+URL: https://poly.google.com/view/dPgkqmBDqgH
+License: Creative Commons CC-BY
+https://creativecommons.org/licenses/by/3.0/legalcode
+
 Title: Roomba
 Author: Poly by Google
 URL: https://poly.google.com/view/5WERTPcyIMn
+License: Creative Commons CC-BY
+https://creativecommons.org/licenses/by/3.0/legalcode
+
+Title: SNES
+Author: Gabriel Valdivia
+URL: https://poly.google.com/view/7yVvvpp-ftQ
 License: Creative Commons CC-BY
 https://creativecommons.org/licenses/by/3.0/legalcode
 
@@ -45,5 +123,17 @@ https://creativecommons.org/licenses/by/3.0/legalcode
 Title: Toilet paper roll
 Author: Poly by Google
 URL: https://poly.google.com/view/3fTwIG4NTg3
+License: Creative Commons CC-BY
+https://creativecommons.org/licenses/by/3.0/legalcode
+
+Title: Window
+Author: Justin Randall
+URL: https://poly.google.com/view/dwBpM-aSA_t
+License: Creative Commons CC-BY
+https://creativecommons.org/licenses/by/3.0/legalcode
+
+Title: x-wing
+Author: Alberto Calvo
+URL: https://poly.google.com/view/d6Xadlg51aC
 License: Creative Commons CC-BY
 https://creativecommons.org/licenses/by/3.0/legalcode
