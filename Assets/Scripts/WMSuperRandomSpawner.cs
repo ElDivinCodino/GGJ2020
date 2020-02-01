@@ -26,8 +26,8 @@ public class WMSuperRandomSpawner : MonoBehaviour {
     void Update() {
         if(Input.GetMouseButtonDown(0)) {
             randomInt = GetRandom(0,spawnees.Length);
-            rand_forward = GetRandom(100, 400);
-            rand_up = GetRandom(10, 200);
+            rand_forward = GetRandom(75, 200);
+            rand_up = GetRandom(100, 400);
             //spawnPoint.transform.RotateAround(Vector3.up, GetRandom(0, 180));
             spawnPoint.transform.Rotate(Vector3.up, GetRandom(0, 180));
             SpawnRandom(1);
