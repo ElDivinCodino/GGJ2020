@@ -9,7 +9,6 @@ public class SockBehaviour : MonoBehaviour
 
     private float leftTrigger;
     private float rightTrigger;
-<<<<<<< HEAD
     //private GameObject currentSock;
     private bool leftBumperPressed;
     private bool rightBumperPressed;
@@ -20,16 +19,10 @@ public class SockBehaviour : MonoBehaviour
 
     public GameObject leftHand;
     public GameObject rightHand;
-=======
->>>>>>> master
 
     // Start is called before the first frame update
     void Start()
     {
-<<<<<<< HEAD
-=======
-        
->>>>>>> master
     }
 
     // Update is called once per frame
@@ -44,31 +37,19 @@ public class SockBehaviour : MonoBehaviour
         //}
         if (rightSock != null && rightTrigger == -1)
         {
-            // drop sock
-            /*
-                spawn rightSock nella scena;
-                rightSock = null;
-            */
+            Debug.Log("Dropping right sock");
+            dropSock(rightSock);
+            rightSock = null;
         }
+
         if (leftSock != null && leftTrigger == -1)
         {
-            // drop sock
-            /*
-                spawn leftSock nella scena;
-                leftSock = null;
-            */
             Debug.Log("Dropping sock");
-            leftSock.GetComponent<Transform>().parent = null;
-            //leftSock.GetComponent<Rigidbody>().useGravity = true;
-            Rigidbody rb = leftSock.GetComponent<Rigidbody>();
-            rb.detectCollisions = true;
-            //rb.useGravity = true;
-            //leftSock.GetComponent<Rigidbody>().isKinematic = false;
+            dropSock(leftSock);
             leftSock = null;
         }
         if (isCarryingLeft())
         {
-<<<<<<< HEAD
             //Debug.Log(leftSock);
             if (Input.GetButton("Left Bumper") && !leftBumperPressed)
             {
@@ -102,16 +83,6 @@ public class SockBehaviour : MonoBehaviour
         //sock.transform.position = sockPosition;
         sock.GetComponent<BoxCollider>().enabled = true;
 
-=======
-            Debug.Log(leftSock);
-            GameObject leftHand = GameObject.Find("EthanLeftHand");
-            Transform leftHandTransf = leftHand.GetComponent<Transform>();
-            Transform leftSockTransf = leftSock.GetComponent<Transform>();
-            leftSockTransf.position = leftHandTransf.position;
-            //Debug.Log("Restting position");
-
-        }
->>>>>>> master
 
     }
 
@@ -125,27 +96,19 @@ public class SockBehaviour : MonoBehaviour
             // Debug.Log("Left Trigger: " + leftTrigger);
             if (leftTrigger == 1 && !isCarryingLeft())
             {
-<<<<<<< HEAD
                 leftSock = other.gameObject;
                 GetComponent<Animator>().SetTrigger("PickUpLeft");
-=======
-                pickUpLeftSock(other.gameObject);
->>>>>>> master
             }
             if (rightTrigger == 1 && !isCarryingRight())
             {
                 rightSock = other.gameObject;
-<<<<<<< HEAD
                 GetComponent<Animator>().SetTrigger("PickUpRight");
 
-=======
->>>>>>> master
             }
 
         }
     }
-<<<<<<< HEAD
-    
+
     void throwLeftSock()
     {
         throwSock(leftSock, "CarryingLeft");
@@ -165,42 +128,23 @@ public class SockBehaviour : MonoBehaviour
         rb.AddForce(transform.forward * forwardForce, ForceMode.Impulse);
         rb.AddForce(transform.up * upForce, ForceMode.Impulse);
         rb.useGravity = true;
-=======
-
-    void pickUpLeftSock(GameObject other)
-    {
-        //if (leftSock == null)
-        //{
-        //    Debug.Log("Picking up socks");
-        //    // do animation only here
-        //}
-        leftSock = other.gameObject;
-        GameObject leftHand = GameObject.Find("EthanLeftHand");
-        Transform leftHandTransf = leftHand.GetComponent<Transform>();
-        Transform leftSockTransf = leftSock.GetComponent<Transform>();
-
-        //leftSock.GetComponent<Rigidbody>().useGravity = false;
-        Rigidbody rb = leftSock.GetComponent<Rigidbody>();
-        rb.detectCollisions = false;
-        //rb.useGravity = false;
->>>>>>> master
 
         sock.GetComponent<BoxCollider>().enabled = true;
-        if (carrying== "CarryingLeft")
+        if (carrying == "CarryingLeft")
         {
             leftBumperPressed = false;
-        } else
+        }
+        else
         {
             rightBumperPressed = false;
         }
-            GetComponent<Animator>().SetBool(carrying, false);
+        GetComponent<Animator>().SetBool(carrying, false);
     }
     public void pickUpLeftSock()
     {
         Debug.Log("Picking Up left");
         pickUpSock(leftSock.transform, leftHand.transform, "CarryingLeft");
     }
-<<<<<<< HEAD
     public void pickUpRightSock()
     {
         Debug.Log("Picking Up right");
@@ -230,8 +174,6 @@ public class SockBehaviour : MonoBehaviour
         GetComponent<Animator>().SetBool(carrying, true);
     }
 
-=======
->>>>>>> master
     public bool isCarryingLeft()
     {
         if (leftSock != null)
