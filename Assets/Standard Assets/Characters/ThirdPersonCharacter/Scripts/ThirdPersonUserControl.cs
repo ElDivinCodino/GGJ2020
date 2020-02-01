@@ -16,15 +16,6 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         private bool m_Jump;                      // the world-relative desired move direction, calculated from the camForward and user input.
 
 
-        private Vector2 move;
-        // PlayerControls controls;
-        void Awake() {
-            // controls = new PlayerControls();
-
-            // controls.PlayerControls.Move.performed += ctx => move = ctx.ReadValues<Vector2>();
-
-        }
-
         private void Start()
         {
             // get the transform of the main camera
@@ -71,13 +62,11 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             float v = CrossPlatformInputManager.GetAxis("Vertical");
             // float v = move.y;
             // bool crouch = Input.GetKey(KeyCode.C);
-            float leftTrigger = Input.GetAxis("Left Trigger");
-            float rightTrigger = Input.GetAxis("Right Trigger");
             
-            bool crouch = false;
-            if (leftTrigger > 0 || rightTrigger > 0) {
-                crouch = true;
-            }
+            //Debug.Log("Left Trigger: " + leftTrigger);
+            
+            //bool crouch = false;
+            
             // controls.PlayerControls.PickUp.performed += ctx => crouch = ctx.ReadValues<bool>();
 
             // calculate move direction to pass to character
@@ -98,8 +87,9 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 #endif
 
             // pass all parameters to the character control script
-            m_Character.Move(m_Move, crouch, m_Jump);
+            m_Character.Move(m_Move, false, m_Jump);
             m_Jump = false;
         }
+        
     }
 }
