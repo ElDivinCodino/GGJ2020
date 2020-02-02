@@ -50,7 +50,8 @@ public class StuffSpawner : MonoBehaviour
             {
                 position = randomPosition();
             }
-            GameObject created = Instantiate(cubes[Random.Range(0, cubes.Length)], position, Random.rotation);
+            //GameObject created = Instantiate(cubes[Random.Range(0, cubes.Length)], position, Random.rotation);
+            GameObject created = Instantiate(cubes[Random.Range(0, cubes.Length)], position, gameObject.transform.rotation);
             spawned.Add(created);
             j--;
         }
