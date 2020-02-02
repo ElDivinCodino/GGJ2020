@@ -586,7 +586,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1470425829, guid: 2fa61c9591edf4f1e86c9f5d0d3f769b, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1470425829, guid: 2fa61c9591edf4f1e86c9f5d0d3f769b, type: 3}
+      propertyPath: player
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5895007160441755517, guid: 2fa61c9591edf4f1e86c9f5d0d3f769b,
         type: 3}
@@ -1101,12 +1105,17 @@ PrefabInstance:
     - target: {fileID: 5895007161326866818, guid: 2fa61c9591edf4f1e86c9f5d0d3f769b,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5895007161326866819, guid: 2fa61c9591edf4f1e86c9f5d0d3f769b,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5895007161326866819, guid: 2fa61c9591edf4f1e86c9f5d0d3f769b,
+        type: 3}
+      propertyPath: player
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5895007161326866831, guid: 2fa61c9591edf4f1e86c9f5d0d3f769b,
         type: 3}
@@ -2187,13 +2196,7 @@ MonoBehaviour:
   m_ParentHash:
   - m_Hash: 622510993
     m_ParentHash: 756556552
-  - m_Hash: 433423271
-    m_ParentHash: 756556552
   - m_Hash: 994026082
-    m_ParentHash: 756556552
-  - m_Hash: -1947906870
-    m_ParentHash: 756556552
-  - m_Hash: -1749901905
     m_ParentHash: 756556552
 --- !u!1 &536755998
 GameObject:
@@ -2288,7 +2291,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 536755998}
-  m_LocalRotation: {x: 0.19084722, y: -0.0003343031, z: 0.00006492018, w: 0.9816197}
+  m_LocalRotation: {x: 0.19084719, y: -0.00033427385, z: 0.000064914486, w: 0.9816197}
   m_LocalPosition: {x: -5.0280867, y: 6.2871113, z: -17.384396}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -3195,8 +3198,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1207090690}
-  m_LocalRotation: {x: 0.19084722, y: -0.0003343031, z: 0.00006492018, w: 0.9816197}
-  m_LocalPosition: {x: 0.051055275, y: 2.2565408, z: 4.5596037}
+  m_LocalRotation: {x: 0.19084719, y: -0.00033427385, z: 0.000064914486, w: 0.9816197}
+  m_LocalPosition: {x: 0.05105597, y: 2.2565413, z: 4.5596046}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3564,7 +3567,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1411402991}
-  m_LocalRotation: {x: -0.5415883, y: -0.0014437707, z: 0.0008929537, w: -0.8406422}
+  m_LocalRotation: {x: -0.6171067, y: 0.022504888, z: -0.01770083, w: -0.7863585}
   m_LocalPosition: {x: -5.3185563, y: 12.8459425, z: -14.213022}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -3632,8 +3635,11 @@ MonoBehaviour:
   - {fileID: 9050889031359410363, guid: 3471dcd0628ce4d6f8fee08b07bf56c1, type: 3}
   - {fileID: 9050889031359410363, guid: 1560b27c6e1f7445586518df1ab4e928, type: 3}
   spawnPoint: {fileID: 0}
+  anim: {fileID: 0}
   max_socks: 10
   radius: 2
+  meanGaussian: 2
+  gameIsPlaying: 0
 --- !u!4 &1429710456
 Transform:
   m_ObjectHideFlags: 0
@@ -4835,6 +4841,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23acce001db8941dfb5707457a441395, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  resizeSpeed: 0
+  gameUI: {fileID: 2040456498}
+  gameController: {fileID: 0}
+  playButton: {fileID: 0}
+  timeLabel: {fileID: 0}
+  startingCanvas: {fileID: 0}
+  player1: {fileID: 0}
+  player2: {fileID: 0}
+  timeLeft: 60
+  endScore: 2
 --- !u!4 &1579241627 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5464758363144804291, guid: 81cb48e0ed66b064a82b4e40a26f37c9,

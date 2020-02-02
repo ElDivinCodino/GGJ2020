@@ -22,7 +22,7 @@ public class SockBehaviour : MonoBehaviour
     public string leftTriggerInput = "Left Trigger";
     public string rightTriggerInput = "Right Trigger";
 
-
+    public string player = "";
     public float upForce;
     public float forwardForce;
 
@@ -78,8 +78,24 @@ public class SockBehaviour : MonoBehaviour
     }
     // -----------------------------------------------------------------------------------
 
+    private void Start()
+    {
+        leftBumperInput += player;
+        rightBumperInput += player;
+        leftTriggerInput += player;
+        rightTriggerInput += player;
+        //Debug.Log("Player: " + player);
+        //Debug.Log(leftBumperInput);
+        //Debug.Log(rightBumperInput);
+        //Debug.Log(leftTriggerInput);
+        //Debug.Log(rightTriggerInput);
+    }
+
     void Update()
     {
+        leftTrigger = Input.GetAxis(leftTriggerInput);
+        rightTrigger = Input.GetAxis(rightTriggerInput);
+
         if (isCarryingLeft())
         {
             switch (leftSock.name)
@@ -117,10 +133,18 @@ public class SockBehaviour : MonoBehaviour
                     lSockImg.GetComponent<RawImage>().color = Color.red;
                     break;
             }
+            if (Input.GetButton(leftBumperInput) && !leftBumperPressed)
+            {
+                leftBumperPressed = true;
+                Debug.Log("Left Bumper!");
+                GetComponent<Animator>().SetTrigger("ThrowLeft");
+
+            }
         }
-        else
+        else 
         {
-            lSockImg.GetComponent<RawImage>().color = new Color(0,0,0,0);
+            if (lSockImg != null)
+                lSockImg.GetComponent<RawImage>().color = new Color(0,0,0,0);
         }
         if (isCarryingRight())
         {
@@ -136,9 +160,9 @@ public class SockBehaviour : MonoBehaviour
                     Color pink = new Color(252f / 255f, 15f / 255f, 192f / 255f, 1f);
                     rSockImg.GetComponent<RawImage>().color = pink;
                     break;
-                case "Sock_green(Clone)":
+                case "Sock_green(C== 1)":
                     rSockImg.GetComponent<RawImage>().color = Color.green;
-                    break;
+                   break;
                 case "Sock_yellow(Clone)":
                     rSockImg.GetComponent<RawImage>().color = Color.yellow;
                     break;
@@ -159,30 +183,22 @@ public class SockBehaviour : MonoBehaviour
                     rSockImg.GetComponent<RawImage>().color = Color.red;
                     break;
             }
+            if (Input.GetButton(rightBumperInput) && !rightBumperPressed)
+            {
+                rightBumperPressed = true;
+                Debug.Log("Right Bumper!");
+                GetComponent<Animator>().SetTrigger("ThrowRight");
+
+            }
         }
         else
         {
-            rSockImg.GetComponent<RawImage>().color = new Color(0, 0, 0, 0);
+            if (rSockImg != null)
+                rSockImg.GetComponent<RawImage>().color = new Color(0, 0, 0, 0);
+
         }
 
-        if (leftTriggerInput == "Left Trigger" && rightTriggerInput == "Right Trigger")
-        {
-            leftTrigger = Input.GetAxis(leftTriggerInput);
-            rightTrigger = Input.GetAxis(rightTriggerInput);
-        }
-        else
-        {
-            leftTrigger = System.Convert.ToSingle(Input.GetKey(KeyCode.J));
-            rightTrigger = System.Convert.ToSingle(Input.GetKey(KeyCode.K));
-            if(leftTrigger == 0)
-            {
-                leftTrigger = -1;
-            }
-            if (rightTrigger == 0)
-            {
-                rightTrigger = -1;
-            }
-        }
+       
 
         if (rightSock != null && rightTrigger == -1)
         {
@@ -201,55 +217,62 @@ public class SockBehaviour : MonoBehaviour
             dropSock(leftSock);
             leftSock = null;
         }
-        if (isCarryingLeft())
+       
+        
+
+        testGamePad();
+    }
+
+
+    /* ----------------- */
+    void testGamePad()
+    {
+        //if (Input.GetJoystickNames().Length > 0 )
+        //{
+        //    Debug.Log(Input.GetJoystickNames()[0]);
+        //    Debug.Log(Input.GetJoystickNames()[1]);
+        //}
+        if (Input.GetAxis(leftTriggerInput) == 1)
         {
-            //Debug.Log(leftSock);
-            if(leftBumperInput == "Left Bumper")
-            {
-                if (Input.GetButton(leftBumperInput) && !leftBumperPressed)
-                {
-                    leftBumperPressed = true;
-                    Debug.Log("Left Bumper!");
-                    GetComponent<Animator>().SetTrigger("ThrowLeft");
-
-                }
-            }
-            else
-            {
-                if (Input.GetKey(KeyCode.H) && !leftBumperPressed)
-                {
-                    leftBumperPressed = true;
-                    Debug.Log("Left Bumper!");
-                    GetComponent<Animator>().SetTrigger("ThrowLeft");
-
-                }
-            }
+            Debug.Log(leftTriggerInput);
         }
-        if (isCarryingRight())
+        else if (Input.GetAxis(rightTriggerInput)== 1)
         {
-            //Debug.Log(rightSock);
-            if (rightBumperInput == "Right Bumper")
-            {
-                if (Input.GetButton(rightBumperInput) && !rightBumperPressed)
-                {
-                    rightBumperPressed = true;
-                    Debug.Log("Right Bumper!");
-                    GetComponent<Animator>().SetTrigger("ThrowRight");
-
-                }
-            }
-            else
-            {
-                if (Input.GetKey(KeyCode.L) && !rightBumperPressed)
-                {
-                    rightBumperPressed = true;
-                    Debug.Log("Right Bumper!");
-                    GetComponent<Animator>().SetTrigger("ThrowRight");
-
-                }
-            }
+            Debug.Log(rightTriggerInput);
+        }
+        else if (Input.GetButton(rightBumperInput))
+        {
+            Debug.Log(rightBumperInput);
+        }
+        else if (Input.GetButton(leftBumperInput))
+        {
+            Debug.Log(leftBumperInput);
+        }
+        else if (Input.GetButton("Cross" + player))
+        {
+            Debug.Log("Cross" + player);
+        }
+        else if (Input.GetButton("Square"+player))
+        {
+            Debug.Log("Square"+" "+player);
+        }
+        else if (Input.GetButton("Circle" + player))
+        {
+            Debug.Log("Circle" + player);
+        }
+        else if (Input.GetButton("Triangle" + player))
+        {
+            Debug.Log("Triangle" + player);
+        }
+        else  if (Input.GetButton("Jump"+player))
+        {
+            Debug.Log("Jump" + player);
         }
     }
+    /* ----------------- */
+
+
+
     void dropSock(GameObject sock)
     {
         //Vector3 sockPosition = sock.transform.position;
@@ -280,15 +303,16 @@ public class SockBehaviour : MonoBehaviour
 
     private void OnCollisionStay(Collision other)
     {
-        if(leftTriggerInput == "Left Trigger" && rightTriggerInput == "Right Trigger")
-        {
-            leftTrigger = Input.GetAxis(leftTriggerInput);
-            rightTrigger = Input.GetAxis(rightTriggerInput);
-        }
-        else
+        if (leftTriggerInput == "Left Trigger PC" && rightTriggerInput == "Right Trigger PC")
         {
             leftTrigger = System.Convert.ToSingle(Input.GetKey(KeyCode.J));
             rightTrigger = System.Convert.ToSingle(Input.GetKey(KeyCode.K));
+            
+        }
+        else
+        {
+            leftTrigger = Input.GetAxis(leftTriggerInput);
+            rightTrigger = Input.GetAxis(rightTriggerInput);
         }
         if (other.gameObject.tag == "Sock")
         {
@@ -361,10 +385,12 @@ public class SockBehaviour : MonoBehaviour
     {
         throwSock(leftSock, "CarryingLeft");
     }
+
     void throwRightSock()
     {
         throwSock(rightSock, "CarryingRight");
     }
+
     void throwSock(GameObject sock, string carrying)
     {
         if(canThrow){
@@ -392,16 +418,19 @@ public class SockBehaviour : MonoBehaviour
             Debug.Log("you cannot throw socks");
         }
     }
+
     public void pickUpLeftSock()
     {
         Debug.Log("Picking Up left");
         pickUpSock(leftSock.transform, leftHand.transform, "CarryingLeft");
     }
+
     public void pickUpRightSock()
     {
         Debug.Log("Picking Up right");
         pickUpSock(rightSock.transform, rightHand.transform, "CarryingRight");
     }
+
     void pickUpSock(Transform sock, Transform hand, string carrying)
     {
         //sock.gameObject.SetActive(false);
@@ -452,6 +481,7 @@ public class SockBehaviour : MonoBehaviour
         }
         return false;
     }
+
     public bool isCarryingRight()
     {
         if (rightSock != null)
