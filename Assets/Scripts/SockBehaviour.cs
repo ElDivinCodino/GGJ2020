@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using UnityStandardAssets.Characters.ThirdPerson; //sockPowers (Toto')
 
@@ -27,6 +28,8 @@ public class SockBehaviour : MonoBehaviour
 
     public GameObject leftHand;
     public GameObject rightHand;
+    public GameObject lSockImg;
+    public GameObject rSockImg;
 
     //sockPowers (Toto') ------------------------------------------------------------------
     float malusDuration=3.0f;
@@ -77,6 +80,87 @@ public class SockBehaviour : MonoBehaviour
 
     void Update()
     {
+        if (isCarryingLeft())
+        {
+            switch (leftSock.name)
+            {
+                case "Sock_white(Clone)":
+                    lSockImg.GetComponent<RawImage>().color = Color.white;
+                    break;
+                case "Sock_black(Clone)":
+                    lSockImg.GetComponent<RawImage>().color = Color.black;
+                    break;
+                case "Sock_pink(Clone)":
+                    rSockImg.GetComponent<RawImage>().color = new Color(252f, 15f, 192f);
+                    break;
+                case "Sock_green(Clone)":
+                    lSockImg.GetComponent<RawImage>().color = Color.green;
+                    break;
+                case "Sock_yellow(Clone)":
+                    lSockImg.GetComponent<RawImage>().color = Color.yellow;
+                    break;
+                case "Sock_orange(Clone)":
+                    rSockImg.GetComponent<RawImage>().color = new Color(255f, 117f, 20f);
+                    break;
+                case "Sock_gray(Clone)":
+                    lSockImg.GetComponent<RawImage>().color = Color.gray;
+                    break;
+                case "Sock_blue(Clone)":
+                    lSockImg.GetComponent<RawImage>().color = Color.blue;
+                    break;
+                case "Sock_purple(Clone)":
+                    lSockImg.GetComponent<RawImage>().color = Color.magenta;
+                    break;
+                case "Sock_red(Clone)":
+                    lSockImg.GetComponent<RawImage>().color = Color.red;
+                    break;
+            }
+        }
+        else
+        {
+            lSockImg.GetComponent<RawImage>().color = new Color(0,0,0,0);
+        }
+        if (isCarryingRight())
+        {
+            switch (rightSock.name)
+            {
+                case "Sock_white(Clone)":
+                    rSockImg.GetComponent<RawImage>().color = Color.white;
+                    break;
+                case "Sock_black(Clone)":
+                    rSockImg.GetComponent<RawImage>().color = Color.black;
+                    break;
+                case "Sock_pink(Clone)":
+                    rSockImg.GetComponent<RawImage>().color = new Color(252f, 15f, 192f);
+                    break;
+                case "Sock_green(Clone)":
+                    rSockImg.GetComponent<RawImage>().color = Color.green;
+                    break;
+                case "Sock_yellow(Clone)":
+                    rSockImg.GetComponent<RawImage>().color = Color.yellow;
+                    break;
+                case "Sock_orange(Clone)":
+                    rSockImg.GetComponent<RawImage>().color = new Color(255f, 117f, 20f);
+                    break;
+                case "Sock_gray(Clone)":
+                    rSockImg.GetComponent<RawImage>().color = Color.gray;
+                    break;
+                case "Sock_blue(Clone)":
+                    rSockImg.GetComponent<RawImage>().color = Color.blue;
+                    break;
+                case "Sock_purple(Clone)":
+                    rSockImg.GetComponent<RawImage>().color = Color.magenta;
+                    break;
+                case "Sock_red(Clone)":
+                    rSockImg.GetComponent<RawImage>().color = Color.red;
+                    break;
+            }
+        }
+        else
+        {
+            rSockImg.GetComponent<RawImage>().color = new Color(0, 0, 0, 0);
+        }
+
         if (leftTriggerInput == "Left Trigger" && rightTriggerInput == "Right Trigger")
         {
             leftTrigger = Input.GetAxis(leftTriggerInput);

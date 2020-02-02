@@ -5,7 +5,7 @@ using UnityEngine;
 public class WMdestroyer : MonoBehaviour
 {
 
-    public float lifeTime = 10f;
+    public float lifeTime = 2f;
 
     // Update is called once per frame
     void Update()

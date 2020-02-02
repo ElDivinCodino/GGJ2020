@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class scoreManager : MonoBehaviour
 {
     private GameObject leftSock;
     private GameObject rightSock;
+    public GameObject playerPoints;
 
     public int score;
 
@@ -32,6 +34,7 @@ public class scoreManager : MonoBehaviour
             leftSock.GetComponent<WMdestroyer>().Destruction();
             rightSock.GetComponent<WMdestroyer>().Destruction();
             score += 2;
+            playerPoints.GetComponent<TMPro.TextMeshProUGUI>().text = score.ToString();
         }
     }
 }
