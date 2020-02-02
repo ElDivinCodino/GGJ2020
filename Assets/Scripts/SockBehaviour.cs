@@ -359,16 +359,18 @@ public class SockBehaviour : MonoBehaviour
             }
             else if(other.gameObject.transform.position.y > 0.5)
             {
-                if(!shielded){ //sockPowers (Toto')
+                if(!shielded)
+                { //sockPowers (Toto')
+
+                    GetComponent<Animator>().SetTrigger("Hit");
+
                     if (leftSock != null && isCarryingLeft() && other.gameObject != leftSock && other.gameObject != rightSock)
                     {
                         dropSock(leftSock);
-                        GetComponent<Animator>().SetTrigger("Hit");
                     }
                     if (rightSock != null && isCarryingRight() && other.gameObject != leftSock && other.gameObject != rightSock)
                     {
                         dropSock(rightSock);
-                        GetComponent<Animator>().SetTrigger("Hit");
                     }
                 }else{ //lazy implementation
                     if (rightSock != null && isCarryingRight() && other.gameObject != leftSock && other.gameObject != rightSock)
