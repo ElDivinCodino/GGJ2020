@@ -15,6 +15,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         private Vector3 m_Move;
         private bool m_Jump;                      // the world-relative desired move direction, calculated from the camForward and user input.
 
+        public string player = "";
         public string leftBumperInput = "Left Bumper";
         public string rightBumperInput = "Right Bumper";
         public string leftTriggerInput = "Left Trigger";
@@ -25,6 +26,13 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
         private void Start()
         {
+            leftBumperInput += player;
+            rightBumperInput += player;
+            leftTriggerInput += player;
+            rightTriggerInput += player;
+            horizontalInput += player;
+            verticalInput += player;
+            jumpInput += player;
             // get the transform of the main camera
             if (Camera.main != null)
             {
@@ -69,11 +77,11 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             float v = CrossPlatformInputManager.GetAxis(verticalInput);
             // float v = move.y;
             // bool crouch = Input.GetKey(KeyCode.C);
-            
+
             //Debug.Log("Left Trigger: " + leftTrigger);
-            
+
             //bool crouch = false;
-            
+
             // controls.PlayerControls.PickUp.performed += ctx => crouch = ctx.ReadValues<bool>();
 
             // calculate move direction to pass to character

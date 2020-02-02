@@ -21,7 +21,7 @@ public class SockBehaviour : MonoBehaviour
     public string leftTriggerInput = "Left Trigger";
     public string rightTriggerInput = "Right Trigger";
 
-
+    public string player = "";
     public float upForce;
     public float forwardForce;
 
@@ -75,26 +75,34 @@ public class SockBehaviour : MonoBehaviour
     }
     // -----------------------------------------------------------------------------------
 
+    private void Start()
+    {
+        leftBumperInput += player;
+        rightBumperInput += player;
+        leftTriggerInput += player;
+        rightTriggerInput += player;
+    }
+
     void Update()
     {
-        if (leftTriggerInput == "Left Trigger" && rightTriggerInput == "Right Trigger")
-        {
-            leftTrigger = Input.GetAxis(leftTriggerInput);
-            rightTrigger = Input.GetAxis(rightTriggerInput);
-        }
-        else
-        {
-            leftTrigger = System.Convert.ToSingle(Input.GetKey(KeyCode.J));
-            rightTrigger = System.Convert.ToSingle(Input.GetKey(KeyCode.K));
-            if(leftTrigger == 0)
-            {
-                leftTrigger = -1;
-            }
-            if (rightTrigger == 0)
-            {
-                rightTrigger = -1;
-            }
-        }
+        //if (leftTriggerInput == "Left Trigger" && rightTriggerInput == "Right Trigger")
+        //{
+        leftTrigger = Input.GetAxis(leftTriggerInput);
+        rightTrigger = Input.GetAxis(rightTriggerInput);
+        //}
+        //else
+        //{
+        //    leftTrigger = System.Convert.ToSingle(Input.GetKey(KeyCode.J));
+        //    rightTrigger = System.Convert.ToSingle(Input.GetKey(KeyCode.K));
+        //    if(leftTrigger == 0)
+        //    {
+        //        leftTrigger = -1;
+        //    }
+        //    if (rightTrigger == 0)
+        //    {
+        //        rightTrigger = -1;
+        //    }
+        //}
 
         if (rightSock != null && rightTrigger == -1)
         {
@@ -116,52 +124,101 @@ public class SockBehaviour : MonoBehaviour
         if (isCarryingLeft())
         {
             //Debug.Log(leftSock);
-            if(leftBumperInput == "Left Bumper")
+            //if(leftBumperInput == "Left Bumper")
+            //{
+            if (Input.GetButton(leftBumperInput) && !leftBumperPressed)
             {
-                if (Input.GetButton(leftBumperInput) && !leftBumperPressed)
-                {
-                    leftBumperPressed = true;
-                    Debug.Log("Left Bumper!");
-                    GetComponent<Animator>().SetTrigger("ThrowLeft");
+                leftBumperPressed = true;
+                Debug.Log("Left Bumper!");
+                GetComponent<Animator>().SetTrigger("ThrowLeft");
 
-                }
             }
-            else
-            {
-                if (Input.GetKey(KeyCode.H) && !leftBumperPressed)
-                {
-                    leftBumperPressed = true;
-                    Debug.Log("Left Bumper!");
-                    GetComponent<Animator>().SetTrigger("ThrowLeft");
+            //}
+            //else
+            //{
+            //    if (Input.GetKey(KeyCode.H) && !leftBumperPressed)
+            //    {
+            //        leftBumperPressed = true;
+            //        Debug.Log("Left Bumper!");
+            //        GetComponent<Animator>().SetTrigger("ThrowLeft");
 
-                }
-            }
+            //    }
+            //}
         }
         if (isCarryingRight())
         {
             //Debug.Log(rightSock);
-            if (rightBumperInput == "Right Bumper")
+            //if (rightBumperInput == "Right Bumper")
+            //{
+            if (Input.GetButton(rightBumperInput) && !rightBumperPressed)
             {
-                if (Input.GetButton(rightBumperInput) && !rightBumperPressed)
-                {
-                    rightBumperPressed = true;
-                    Debug.Log("Right Bumper!");
-                    GetComponent<Animator>().SetTrigger("ThrowRight");
+                rightBumperPressed = true;
+                Debug.Log("Right Bumper!");
+                GetComponent<Animator>().SetTrigger("ThrowRight");
 
-                }
             }
-            else
-            {
-                if (Input.GetKey(KeyCode.L) && !rightBumperPressed)
-                {
-                    rightBumperPressed = true;
-                    Debug.Log("Right Bumper!");
-                    GetComponent<Animator>().SetTrigger("ThrowRight");
+            //}
+            //else
+            //{
+            //    if (Input.GetKey(KeyCode.L) && !rightBumperPressed)
+            //    {
+            //        rightBumperPressed = true;
+            //        Debug.Log("Right Bumper!");
+            //        GetComponent<Animator>().SetTrigger("ThrowRight");
 
-                }
-            }
+            //    }
+            //}
+        }
+
+        testGamePad();
+    }
+
+
+    /* ----------------- */
+    void testGamePad()
+    {
+        if (Input.GetJoystickNames().Length > 0 )
+        {
+            Debug.Log(Input.GetJoystickNames()[0]);
+            Debug.Log(Input.GetJoystickNames()[1]);
+        }
+        if (Input.GetAxis("Left Trigger") == 1)
+        {
+            Debug.Log("Left Trigger");
+        }
+        else if (Input.GetAxis("Right Trigger") == 1)
+        {
+            Debug.Log("Right Trigger");
+        }
+        else if (Input.GetButton("Right Bumper"))
+        {
+            Debug.Log("Right Bumper");
+        }
+        else if (Input.GetButton("Left Bumper"))
+        {
+            Debug.Log("Left Bumper");
+        }
+        else if (Input.GetButton("Cross"))
+        {
+            Debug.Log("Cross");
+        }
+        else if (Input.GetButton("Square"+player))
+        {
+            Debug.Log("Square"+" "+player);
+        }
+        else if (Input.GetButton("Circle"))
+        {
+            Debug.Log("Circle");
+        }
+        else if (Input.GetButton("Triangle"))
+        {
+            Debug.Log("Triangle");
         }
     }
+    /* ----------------- */
+
+
+
     void dropSock(GameObject sock)
     {
         //Vector3 sockPosition = sock.transform.position;
@@ -271,10 +328,12 @@ public class SockBehaviour : MonoBehaviour
     {
         throwSock(leftSock, "CarryingLeft");
     }
+
     void throwRightSock()
     {
         throwSock(rightSock, "CarryingRight");
     }
+
     void throwSock(GameObject sock, string carrying)
     {
         if(canThrow){
@@ -302,16 +361,19 @@ public class SockBehaviour : MonoBehaviour
             Debug.Log("you cannot throw socks");
         }
     }
+
     public void pickUpLeftSock()
     {
         Debug.Log("Picking Up left");
         pickUpSock(leftSock.transform, leftHand.transform, "CarryingLeft");
     }
+
     public void pickUpRightSock()
     {
         Debug.Log("Picking Up right");
         pickUpSock(rightSock.transform, rightHand.transform, "CarryingRight");
     }
+
     void pickUpSock(Transform sock, Transform hand, string carrying)
     {
         //sock.gameObject.SetActive(false);
@@ -362,6 +424,7 @@ public class SockBehaviour : MonoBehaviour
         }
         return false;
     }
+
     public bool isCarryingRight()
     {
         if (rightSock != null)

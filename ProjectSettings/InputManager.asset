@@ -7,7 +7,7 @@ InputManager:
   m_Axes:
   - serializedVersion: 3
     m_Name: Horizontal
-    descriptiveName: 
+    descriptiveName: ps4
     descriptiveNegativeName: 
     negativeButton: left
     positiveButton: right
@@ -18,25 +18,9 @@ InputManager:
     sensitivity: 3
     snap: 1
     invert: 0
-    type: 0
+    type: 2
     axis: 0
-    joyNum: 0
-  - serializedVersion: 3
-    m_Name: Vertical
-    descriptiveName: 
-    descriptiveNegativeName: 
-    negativeButton: down
-    positiveButton: up
-    altNegativeButton: 
-    altPositiveButton: 
-    gravity: 3
-    dead: 0.001
-    sensitivity: 3
-    snap: 1
-    invert: 0
-    type: 0
-    axis: 0
-    joyNum: 0
+    joyNum: 1
   - serializedVersion: 3
     m_Name: Fire1
     descriptiveName: 
@@ -150,7 +134,7 @@ InputManager:
     axis: 2
     joyNum: 0
   - serializedVersion: 3
-    m_Name: Horizontal
+    m_Name: Horizontal2
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -164,10 +148,10 @@ InputManager:
     invert: 0
     type: 2
     axis: 0
-    joyNum: 0
+    joyNum: 2
   - serializedVersion: 3
     m_Name: Vertical
-    descriptiveName: 
+    descriptiveName: ps4 joystick 1
     descriptiveNegativeName: 
     negativeButton: 
     positiveButton: 
@@ -180,10 +164,26 @@ InputManager:
     invert: 1
     type: 2
     axis: 1
-    joyNum: 0
+    joyNum: 1
   - serializedVersion: 3
-    m_Name: Fire1
-    descriptiveName: 
+    m_Name: Vertical2
+    descriptiveName: ps4 joystick 2
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: 
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 0
+    dead: 0.19
+    sensitivity: 1
+    snap: 0
+    invert: 1
+    type: 2
+    axis: 1
+    joyNum: 2
+  - serializedVersion: 3
+    m_Name: Square
+    descriptiveName: ps4 joystick 1
     descriptiveNegativeName: 
     negativeButton: 
     positiveButton: joystick button 0
@@ -194,12 +194,28 @@ InputManager:
     sensitivity: 1000
     snap: 0
     invert: 0
-    type: 0
+    type: 2
     axis: 0
-    joyNum: 0
+    joyNum: 1
   - serializedVersion: 3
-    m_Name: Fire2
-    descriptiveName: 
+    m_Name: Square2
+    descriptiveName: ps4 joystick 2
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: joystick button 0
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 1000
+    dead: 0.001
+    sensitivity: 1000
+    snap: 0
+    invert: 0
+    type: 2
+    axis: 0
+    joyNum: 2
+  - serializedVersion: 3
+    m_Name: Cross
+    descriptiveName: ps4 joystick 1
     descriptiveNegativeName: 
     negativeButton: 
     positiveButton: joystick button 1
@@ -214,8 +230,8 @@ InputManager:
     axis: 0
     joyNum: 0
   - serializedVersion: 3
-    m_Name: Fire3
-    descriptiveName: 
+    m_Name: Circle
+    descriptiveName: ps4 joystick 1
     descriptiveNegativeName: 
     negativeButton: 
     positiveButton: joystick button 2
@@ -230,8 +246,8 @@ InputManager:
     axis: 0
     joyNum: 0
   - serializedVersion: 3
-    m_Name: Jump
-    descriptiveName: 
+    m_Name: Triangle
+    descriptiveName: ps4 joystick 1
     descriptiveNegativeName: 
     negativeButton: 
     positiveButton: joystick button 3
@@ -246,13 +262,13 @@ InputManager:
     axis: 0
     joyNum: 0
   - serializedVersion: 3
-    m_Name: Left Trigger
-    descriptiveName: 
+    m_Name: Jump
+    descriptiveName: da cancellare
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: return
+    positiveButton: joystick 1 button 3
     altNegativeButton: 
-    altPositiveButton: joystick button 0
+    altPositiveButton: 
     gravity: 1000
     dead: 0.001
     sensitivity: 1000
@@ -260,7 +276,23 @@ InputManager:
     invert: 0
     type: 0
     axis: 0
-    joyNum: 0
+    joyNum: 1
+  - serializedVersion: 3
+    m_Name: Jump2
+    descriptiveName: da cancellare
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: joystick button 3
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 1000
+    dead: 0.001
+    sensitivity: 1000
+    snap: 0
+    invert: 0
+    type: 0
+    axis: 0
+    joyNum: 2
   - serializedVersion: 3
     m_Name: Submit
     descriptiveName: 
@@ -295,10 +327,10 @@ InputManager:
     joyNum: 0
   - serializedVersion: 3
     m_Name: Left Trigger
-    descriptiveName: 
+    descriptiveName: ps4 joystick 1
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: 
+    positiveButton: joystick button 6
     altNegativeButton: 
     altPositiveButton: 
     gravity: 1000
@@ -307,11 +339,11 @@ InputManager:
     snap: 0
     invert: 0
     type: 2
-    axis: 3
-    joyNum: 0
+    axis: 4
+    joyNum: 1
   - serializedVersion: 3
-    m_Name: Left Trigger
-    descriptiveName: ps4
+    m_Name: Left Trigger2
+    descriptiveName: ps4 joystick 2
     descriptiveNegativeName: 
     negativeButton: 
     positiveButton: 
@@ -324,26 +356,10 @@ InputManager:
     invert: 0
     type: 2
     axis: 4
-    joyNum: 0
+    joyNum: 2
   - serializedVersion: 3
     m_Name: Right Trigger
-    descriptiveName: 
-    descriptiveNegativeName: 
-    negativeButton: 
-    positiveButton: 
-    altNegativeButton: 
-    altPositiveButton: 
-    gravity: 1000
-    dead: 0.001
-    sensitivity: 1000
-    snap: 0
-    invert: 0
-    type: 2
-    axis: 4
-    joyNum: 0
-  - serializedVersion: 3
-    m_Name: Right Trigger
-    descriptiveName: ps4
+    descriptiveName: ps4 joystick 1
     descriptiveNegativeName: 
     negativeButton: 
     positiveButton: 
@@ -356,10 +372,10 @@ InputManager:
     invert: 0
     type: 2
     axis: 5
-    joyNum: 0
+    joyNum: 1
   - serializedVersion: 3
-    m_Name: Left Bumper
-    descriptiveName: 
+    m_Name: Right Trigger2
+    descriptiveName: ps4 joystick 2
     descriptiveNegativeName: 
     negativeButton: 
     positiveButton: 
@@ -370,12 +386,12 @@ InputManager:
     sensitivity: 1000
     snap: 0
     invert: 0
-    type: 0
-    axis: 0
-    joyNum: 0
+    type: 2
+    axis: 5
+    joyNum: 2
   - serializedVersion: 3
     m_Name: Left Bumper
-    descriptiveName: ps4
+    descriptiveName: ps4 joystick 1
     descriptiveNegativeName: 
     negativeButton: 
     positiveButton: joystick button 4
@@ -388,10 +404,26 @@ InputManager:
     invert: 0
     type: 0
     axis: 0
-    joyNum: 0
+    joyNum: 1
+  - serializedVersion: 3
+    m_Name: Left Bumper2
+    descriptiveName: ps4 joystick 2
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: joystick button 4
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 1000
+    dead: 0.001
+    sensitivity: 1000
+    snap: 0
+    invert: 0
+    type: 0
+    axis: 0
+    joyNum: 2
   - serializedVersion: 3
     m_Name: Right Bumper
-    descriptiveName: 
+    descriptiveName: ps4 joystick 1
     descriptiveNegativeName: 
     negativeButton: 
     positiveButton: joystick button 14
@@ -406,8 +438,8 @@ InputManager:
     axis: 0
     joyNum: 0
   - serializedVersion: 3
-    m_Name: Right Bumper
-    descriptiveName: ps4
+    m_Name: Right Bumper2
+    descriptiveName: ps4 joystick 2
     descriptiveNegativeName: 
     negativeButton: 
     positiveButton: joystick button 5
