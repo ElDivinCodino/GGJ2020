@@ -31,6 +31,8 @@ public class SockBehaviour : MonoBehaviour
     public GameObject lSockImg;
     public GameObject rSockImg;
 
+    public Animator starsAnim;
+
     //sockPowers (Toto') ------------------------------------------------------------------
     float malusDuration=3.0f;
     private IEnumerator coroutine;
@@ -416,6 +418,26 @@ public class SockBehaviour : MonoBehaviour
             GetComponent<Animator>().SetBool(carrying, false);
         }else{
             Debug.Log("you cannot throw socks");
+        }
+    }
+
+    public void StartStarsAnim()
+    {
+        starsAnim.SetBool("Hit", true);
+
+        foreach (Transform child in starsAnim.gameObject.transform)
+        {
+            child.gameObject.SetActive(true);
+        }
+    }
+
+    public void StopStarsAnim()
+    {
+        starsAnim.SetBool("Hit", false);
+
+        foreach (Transform child in starsAnim.gameObject.transform)
+        {
+            child.gameObject.SetActive(false);
         }
     }
 
