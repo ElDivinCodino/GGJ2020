@@ -669,19 +669,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1470425829, guid: 2fa61c9591edf4f1e86c9f5d0d3f769b, type: 3}
       propertyPath: leftBumperInput
-      value: Left Bumper PC
+      value: Left Bumper
       objectReference: {fileID: 0}
     - target: {fileID: 1470425829, guid: 2fa61c9591edf4f1e86c9f5d0d3f769b, type: 3}
       propertyPath: rightBumperInput
-      value: Right Bumper PC
+      value: Right Bumper
       objectReference: {fileID: 0}
     - target: {fileID: 1470425829, guid: 2fa61c9591edf4f1e86c9f5d0d3f769b, type: 3}
       propertyPath: leftTriggerInput
-      value: Left Trigger PC
+      value: Left Trigger
       objectReference: {fileID: 0}
     - target: {fileID: 1470425829, guid: 2fa61c9591edf4f1e86c9f5d0d3f769b, type: 3}
       propertyPath: rightTriggerInput
-      value: Right Trigger PC
+      value: Right Trigger
       objectReference: {fileID: 0}
     - target: {fileID: 1470425829, guid: 2fa61c9591edf4f1e86c9f5d0d3f769b, type: 3}
       propertyPath: rightHand
@@ -707,6 +707,10 @@ PrefabInstance:
       propertyPath: leftHand
       value: 
       objectReference: {fileID: 908894888}
+    - target: {fileID: 1470425829, guid: 2fa61c9591edf4f1e86c9f5d0d3f769b, type: 3}
+      propertyPath: player
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5895007160441755517, guid: 2fa61c9591edf4f1e86c9f5d0d3f769b,
         type: 3}
       propertyPath: m_LocalRotation.x
@@ -1240,37 +1244,42 @@ PrefabInstance:
     - target: {fileID: 5895007161326866819, guid: 2fa61c9591edf4f1e86c9f5d0d3f769b,
         type: 3}
       propertyPath: leftBumperInput
-      value: Left Bumper PC
+      value: Left Bumper
       objectReference: {fileID: 0}
     - target: {fileID: 5895007161326866819, guid: 2fa61c9591edf4f1e86c9f5d0d3f769b,
         type: 3}
       propertyPath: rightBumperInput
-      value: Right Bumper PC
+      value: Right Bumper
       objectReference: {fileID: 0}
     - target: {fileID: 5895007161326866819, guid: 2fa61c9591edf4f1e86c9f5d0d3f769b,
         type: 3}
       propertyPath: leftTriggerInput
-      value: Left Trigger PC
+      value: Left Trigger
       objectReference: {fileID: 0}
     - target: {fileID: 5895007161326866819, guid: 2fa61c9591edf4f1e86c9f5d0d3f769b,
         type: 3}
       propertyPath: rightTriggerInput
-      value: Right Trigger PC
+      value: Right Trigger
       objectReference: {fileID: 0}
     - target: {fileID: 5895007161326866819, guid: 2fa61c9591edf4f1e86c9f5d0d3f769b,
         type: 3}
       propertyPath: horizontalInput
-      value: Horizontal PC
+      value: Horizontal
       objectReference: {fileID: 0}
     - target: {fileID: 5895007161326866819, guid: 2fa61c9591edf4f1e86c9f5d0d3f769b,
         type: 3}
       propertyPath: verticalInput
-      value: Vertical PC
+      value: Vertical
       objectReference: {fileID: 0}
     - target: {fileID: 5895007161326866819, guid: 2fa61c9591edf4f1e86c9f5d0d3f769b,
         type: 3}
       propertyPath: jumpInput
-      value: Jump PC
+      value: Jump
+      objectReference: {fileID: 0}
+    - target: {fileID: 5895007161326866819, guid: 2fa61c9591edf4f1e86c9f5d0d3f769b,
+        type: 3}
+      propertyPath: player
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5895007161326866831, guid: 2fa61c9591edf4f1e86c9f5d0d3f769b,
         type: 3}
@@ -5005,7 +5014,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1411402991}
-  m_LocalRotation: {x: -0.58090913, y: 0.02981771, z: -0.021340262, w: -0.8131421}
+  m_LocalRotation: {x: -0.52036816, y: 0.012773317, z: -0.007821539, w: -0.8538107}
   m_LocalPosition: {x: -5.3185563, y: 12.8459425, z: -14.213022}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
