@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3076923985570085850}
   - component: {fileID: 5170905374938722881}
   - component: {fileID: 7574184976589837487}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: node_id3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,7 +91,7 @@ GameObject:
   - component: {fileID: 1878257806477568580}
   - component: {fileID: -3030421217711494856}
   - component: {fileID: -1646249961366456928}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sock_white
   m_TagString: Sock
   m_Icon: {fileID: 0}
