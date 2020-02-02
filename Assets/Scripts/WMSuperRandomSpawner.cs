@@ -26,12 +26,15 @@ public class WMSuperRandomSpawner : MonoBehaviour {
     private int current_socks;
     private GameObject check_sock;
 
+    private AudioManagerFinal audio_manager;
+
     GameObject throw_it;
 
     public bool gameIsPlaying = false;
 
     void Start() {
         spawnPoint = GameObject.FindGameObjectWithTag("spawnPoint");
+        audio_manager = transform.GetComponent<AudioManagerFinal>();
     }
     
     // Update is called once per frame
@@ -54,6 +57,7 @@ public class WMSuperRandomSpawner : MonoBehaviour {
             spawnPoint.transform.Rotate(Vector3.up, GetRandom(0, 180));
             SpawnRandom(1);
             SpawnRandom(-1);
+            audio_manager.PlayWMShot();
             //anim.SetTrigger("Shoot");
         }
     }
@@ -99,4 +103,6 @@ public class WMSuperRandomSpawner : MonoBehaviour {
 
             return v1 * s;
         }
+
+
 }
