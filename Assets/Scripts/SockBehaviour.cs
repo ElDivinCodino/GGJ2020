@@ -91,7 +91,8 @@ public class SockBehaviour : MonoBehaviour
                     lSockImg.GetComponent<RawImage>().color = Color.black;
                     break;
                 case "Sock_pink(Clone)":
-                    rSockImg.GetComponent<RawImage>().color = new Color(252f, 15f, 192f);
+                    Color pink = new Color(252f / 255f, 15f / 255f, 192f / 255f, 1f);
+                    lSockImg.GetComponent<RawImage>().color = pink;
                     break;
                 case "Sock_green(Clone)":
                     lSockImg.GetComponent<RawImage>().color = Color.green;
@@ -100,7 +101,8 @@ public class SockBehaviour : MonoBehaviour
                     lSockImg.GetComponent<RawImage>().color = Color.yellow;
                     break;
                 case "Sock_orange(Clone)":
-                    rSockImg.GetComponent<RawImage>().color = new Color(255f, 117f, 20f);
+                    Color orange = new Color(255f/255f, 117f / 255f, 20f / 255f, 1f);
+                    lSockImg.GetComponent<RawImage>().color = orange;
                     break;
                 case "Sock_gray(Clone)":
                     lSockImg.GetComponent<RawImage>().color = Color.gray;
@@ -131,7 +133,8 @@ public class SockBehaviour : MonoBehaviour
                     rSockImg.GetComponent<RawImage>().color = Color.black;
                     break;
                 case "Sock_pink(Clone)":
-                    rSockImg.GetComponent<RawImage>().color = new Color(252f, 15f, 192f);
+                    Color pink = new Color(252f / 255f, 15f / 255f, 192f / 255f, 1f);
+                    rSockImg.GetComponent<RawImage>().color = pink;
                     break;
                 case "Sock_green(Clone)":
                     rSockImg.GetComponent<RawImage>().color = Color.green;
@@ -140,7 +143,8 @@ public class SockBehaviour : MonoBehaviour
                     rSockImg.GetComponent<RawImage>().color = Color.yellow;
                     break;
                 case "Sock_orange(Clone)":
-                    rSockImg.GetComponent<RawImage>().color = new Color(255f, 117f, 20f);
+                    Color orange = new Color(255f / 255f, 117f / 255f, 20f / 255f, 1f);
+                    rSockImg.GetComponent<RawImage>().color = orange;
                     break;
                 case "Sock_gray(Clone)":
                     rSockImg.GetComponent<RawImage>().color = Color.gray;
@@ -311,10 +315,12 @@ public class SockBehaviour : MonoBehaviour
                     if (leftSock != null && isCarryingLeft() && other.gameObject != leftSock && other.gameObject != rightSock)
                     {
                         dropSock(leftSock);
+                        GetComponent<Animator>().SetTrigger("Hit");
                     }
                     if (rightSock != null && isCarryingRight() && other.gameObject != leftSock && other.gameObject != rightSock)
                     {
                         dropSock(rightSock);
+                        GetComponent<Animator>().SetTrigger("Hit");
                     }
                 }else{ //lazy implementation
                     if (rightSock != null && isCarryingRight() && other.gameObject != leftSock && other.gameObject != rightSock)
