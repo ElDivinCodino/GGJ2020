@@ -40,10 +40,18 @@ public class RoombaAI : MonoBehaviour
 
     void OnCollisionEnter(Collision col)
     {
+        Debug.Log("Collisione");
         if (col.gameObject.name != "Roomba Agent" && col.gameObject.name != "Floor" && col.gameObject.name != "Floor2")
         {
             //Destroy(col.gameObject);
-            col.gameObject.GetComponent<Rigidbody>().AddForce(col.gameObject.transform.up * 250);
+            if (col.gameObject.GetComponent<Rigidbody>() != null)
+            {
+                col.gameObject.GetComponent<Rigidbody>().AddForce(col.gameObject.transform.up * 300);
+            }
+        }
+        if (col.gameObject.tag == "Sock")
+        {
+            Debug.Log("COLLIDE!");
         }
     }
 

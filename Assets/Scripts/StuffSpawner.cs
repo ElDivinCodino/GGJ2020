@@ -7,7 +7,9 @@ public class StuffSpawner : MonoBehaviour
     public GameObject[] cubes;
 
     //Limite positivo e negativo per lo spawn di oggetti, rispetto a 0,0 (board di 10x10, posmin = -5, posmax = 5)
-    public float posMin, posMax, spawnHeight;
+    public float mapSize, spawnHeight;
+
+    private float posMin, posMax;
 
     //Massimo e minimo di oggetti da spawnare
     public int toSpawnMin, toSpawnMax;
@@ -18,6 +20,14 @@ public class StuffSpawner : MonoBehaviour
 
     void Start()
     {
+        posMax = mapSize / 2;
+        posMin = - posMax;
+
+        if (toSpawnMax > ((int)mapSize * 10))
+        {
+            toSpawnMax = (int)mapSize * 10;
+        }
+
         spawned = new List<GameObject>();
 
         InitializeEnvironment();
@@ -31,7 +41,12 @@ public class StuffSpawner : MonoBehaviour
         while (j > 0)
         {
             Vector3 position = randomPosition();
-            while (spawned.Exists(cube => cube.transform.position == position))
+            while ( (spawned.Exists(cube => cube.transform.position == position)) ||
+                    (
+                        (position.x > -1 && position.x < 1 && position.z > (posMax - 1)) ||
+                        (position.x > -1 && position.x < 1 && position.z > -1 && position.z < 1)
+                    )
+                )
             {
                 position = randomPosition();
             }

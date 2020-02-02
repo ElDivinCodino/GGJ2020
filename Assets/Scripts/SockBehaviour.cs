@@ -33,7 +33,10 @@ public class SockBehaviour : MonoBehaviour
 
     public Animator starsAnim;
 
+
     private AudioClip pickup_sound,shot_sound,colpito;
+
+    public GameObject powerupUI;
 
     //sockPowers (Toto') ------------------------------------------------------------------
     float malusDuration=3.0f;
@@ -110,33 +113,45 @@ public class SockBehaviour : MonoBehaviour
             switch (leftSock.name)
             {
                 case "Sock_white(Clone)":
+                    lSockImg.GetComponent<RawImage>().texture = powerupUI.GetComponent<powerupUI>().simple;
                     lSockImg.GetComponent<RawImage>().color = Color.white;
                     break;
                 case "Sock_black(Clone)":
+                    lSockImg.GetComponent<RawImage>().texture = powerupUI.GetComponent<powerupUI>().simple;
                     lSockImg.GetComponent<RawImage>().color = Color.black;
                     break;
                 case "Sock_pink(Clone)":
-                    rSockImg.GetComponent<RawImage>().color = new Color(252f, 15f, 192f);
+                    lSockImg.GetComponent<RawImage>().texture = powerupUI.GetComponent<powerupUI>().simple;
+                    Color pink = new Color(252f / 255f, 15f / 255f, 192f / 255f, 1f);
+                    lSockImg.GetComponent<RawImage>().color = pink;
                     break;
                 case "Sock_green(Clone)":
+                    lSockImg.GetComponent<RawImage>().texture = powerupUI.GetComponent<powerupUI>().simple;
                     lSockImg.GetComponent<RawImage>().color = Color.green;
                     break;
                 case "Sock_yellow(Clone)":
+                    lSockImg.GetComponent<RawImage>().texture = powerupUI.GetComponent<powerupUI>().moreThrow;
                     lSockImg.GetComponent<RawImage>().color = Color.yellow;
                     break;
                 case "Sock_orange(Clone)":
-                    rSockImg.GetComponent<RawImage>().color = new Color(255f, 117f, 20f);
+                    lSockImg.GetComponent<RawImage>().texture = powerupUI.GetComponent<powerupUI>().simple;
+                    Color orange = new Color(255f/255f, 117f / 255f, 20f / 255f, 1f);
+                    lSockImg.GetComponent<RawImage>().color = orange;
                     break;
                 case "Sock_gray(Clone)":
+                    lSockImg.GetComponent<RawImage>().texture = powerupUI.GetComponent<powerupUI>().simple;
                     lSockImg.GetComponent<RawImage>().color = Color.gray;
                     break;
                 case "Sock_blue(Clone)":
+                    lSockImg.GetComponent<RawImage>().texture = powerupUI.GetComponent<powerupUI>().simple;
                     lSockImg.GetComponent<RawImage>().color = Color.blue;
                     break;
                 case "Sock_purple(Clone)":
+                    lSockImg.GetComponent<RawImage>().texture = powerupUI.GetComponent<powerupUI>().fast;
                     lSockImg.GetComponent<RawImage>().color = Color.magenta;
                     break;
                 case "Sock_red(Clone)":
+                    lSockImg.GetComponent<RawImage>().texture = powerupUI.GetComponent<powerupUI>().shield;
                     lSockImg.GetComponent<RawImage>().color = Color.red;
                     break;
             }
@@ -158,33 +173,45 @@ public class SockBehaviour : MonoBehaviour
             switch (rightSock.name)
             {
                 case "Sock_white(Clone)":
+                    rSockImg.GetComponent<RawImage>().texture = powerupUI.GetComponent<powerupUI>().simple;
                     rSockImg.GetComponent<RawImage>().color = Color.white;
                     break;
                 case "Sock_black(Clone)":
+                    rSockImg.GetComponent<RawImage>().texture = powerupUI.GetComponent<powerupUI>().simple;
                     rSockImg.GetComponent<RawImage>().color = Color.black;
                     break;
-               case "Sock_pink(Clone)":
-                    rSockImg.GetComponent<RawImage>().color = new Color(252f, 15f, 192f);
+                case "Sock_pink(Clone)":
+                    rSockImg.GetComponent<RawImage>().texture = powerupUI.GetComponent<powerupUI>().simple;
+                    Color pink = new Color(252f / 255f, 15f / 255f, 192f / 255f, 1f);
+                    rSockImg.GetComponent<RawImage>().color = pink;
                     break;
                 case "Sock_green(C== 1)":
+                    rSockImg.GetComponent<RawImage>().texture = powerupUI.GetComponent<powerupUI>().simple;
                     rSockImg.GetComponent<RawImage>().color = Color.green;
                    break;
                 case "Sock_yellow(Clone)":
+                    rSockImg.GetComponent<RawImage>().texture = powerupUI.GetComponent<powerupUI>().moreThrow;
                     rSockImg.GetComponent<RawImage>().color = Color.yellow;
                     break;
                 case "Sock_orange(Clone)":
-                    rSockImg.GetComponent<RawImage>().color = new Color(255f, 117f, 20f);
+                    rSockImg.GetComponent<RawImage>().texture = powerupUI.GetComponent<powerupUI>().simple;
+                    Color orange = new Color(255f / 255f, 117f / 255f, 20f / 255f, 1f);
+                    rSockImg.GetComponent<RawImage>().color = orange;
                     break;
                 case "Sock_gray(Clone)":
+                    rSockImg.GetComponent<RawImage>().texture = powerupUI.GetComponent<powerupUI>().simple;
                     rSockImg.GetComponent<RawImage>().color = Color.gray;
                     break;
                 case "Sock_blue(Clone)":
+                    rSockImg.GetComponent<RawImage>().texture = powerupUI.GetComponent<powerupUI>().simple;
                     rSockImg.GetComponent<RawImage>().color = Color.blue;
                     break;
                 case "Sock_purple(Clone)":
+                    rSockImg.GetComponent<RawImage>().texture = powerupUI.GetComponent<powerupUI>().fast;
                     rSockImg.GetComponent<RawImage>().color = Color.magenta;
                     break;
                 case "Sock_red(Clone)":
+                    rSockImg.GetComponent<RawImage>().texture = powerupUI.GetComponent<powerupUI>().shield;
                     rSockImg.GetComponent<RawImage>().color = Color.red;
                     break;
             }
@@ -341,7 +368,12 @@ public class SockBehaviour : MonoBehaviour
             else if(other.gameObject.transform.position.y > 0.5)
             {
                 transform.GetComponent<AudioSource>().PlayOneShot(colpito);
-                if (!shielded){ //sockPowers (Toto')
+                if(!shielded)
+                { //sockPowers (Toto')
+
+                    GetComponent<Animator>().SetTrigger("Hit");
+
+>>>>>>> c63c6e2eb82decdd1ca7298f0bdbcefdd5192d82
                     if (leftSock != null && isCarryingLeft() && other.gameObject != leftSock && other.gameObject != rightSock)
                     {
                         dropSock(leftSock);
