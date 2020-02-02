@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityStandardAssets.Characters.ThirdPerson; //sockPowers (Toto)
+using UnityStandardAssets.Characters.ThirdPerson; //sockPowers (Toto')
 
 public class SockBehaviour : MonoBehaviour
 {
@@ -28,18 +28,25 @@ public class SockBehaviour : MonoBehaviour
     public GameObject leftHand;
     public GameObject rightHand;
 
-    //sockPowers (Toto)
+    //sockPowers (Toto') ------------------------------------------------------------------
     float malusDuration=3.0f;
     private IEnumerator coroutine;
 
-    String sockSpeed="Sock_yellow(Clone)"; //speed handling
+    String sockSpeed="Sock_purple(Clone)"; //speed boost/zeroing
     float peakSpeed=5f;
 
-    /*Sock_blue
-    Sock_pink
-    Sock_yellow
-    Sock_green
-    Sock_red*/
+    String sockLimiter="Sock_red(Clone)"; //only loose one/cannot pick socks
+    bool canPick=true, shielded=false;
+
+    String sockRange="Sock_green(Clone)"; //range extended/cannot trow
+    float strength=1f;
+    bool canThrow=true;
+
+    /*Sock_orange--> doppio salto
+    ?? --> dash (e malus dell'altro slowdown)
+    ?? --> increase washing machine pool
+    other?
+    */
 
     //coroutines
     IEnumerator slowDown()
@@ -48,27 +55,26 @@ public class SockBehaviour : MonoBehaviour
         GetComponent<ThirdPersonCharacter>().setSpeed(1f);
         Debug.Log("speed restored");
     }
-    IEnumerator GOSH()
+    IEnumerator GOSH() //easter egg
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(5f);
         GetComponent<ThirdPersonCharacter>().setSpeed(10f);
         Debug.Log("GOSH");
     }
+    IEnumerator noSocks()
+    {
+        yield return new WaitForSeconds(malusDuration);
+        canPick=true;
+        Debug.Log("can now pick socks");
+    }
+    IEnumerator noThrow()
+    {
+        yield return new WaitForSeconds(malusDuration);
+        canThrow=true;
+        Debug.Log("can now throw socks");
+    }
+    // -----------------------------------------------------------------------------------
 
-    //// Start is called before the first frame update
-    //void Start()
-    //{
-    //    controls = new Controls();
-    //}
-    //private void OnEnable()
-    //{
-    //    controls.Enable();
-    //}
-    //private void OnDisable()
-    //{
-    //    controls.Disable();
-    //}
-    // Update is called once per frame
     void Update()
     {
         if (leftTriggerInput == "Left Trigger" && rightTriggerInput == "Right Trigger")
@@ -89,11 +95,6 @@ public class SockBehaviour : MonoBehaviour
                 rightTrigger = -1;
             }
         }
-
-        //if (leftTrigger > 0 || rightTrigger > 0)
-        //{
-        //    // Debug.Log("triggers work");
-        //}
 
         if (rightSock != null && rightTrigger == -1)
         {
@@ -173,14 +174,20 @@ public class SockBehaviour : MonoBehaviour
         //sock.transform.position = sockPosition;
         sock.GetComponent<BoxCollider>().enabled = true;
         
-        //sockPowers (Toto)
+        //sockPowers (Toto')
         Debug.Log("Dropped : "+sock.name);
         if (System.String.Equals(sock.name, sockSpeed)){
             Debug.Log("speed restored");
             GetComponent<ThirdPersonCharacter>().setSpeed(1f);
         }
-
-
+        if (System.String.Equals(sock.name, sockLimiter)){
+            Debug.Log("shield disabled");
+            shielded=false;
+        }
+        if (System.String.Equals(sock.name, sockRange)){
+            Debug.Log("ra(n)ge restored");
+            strength=1f;
+        }
     }
 
     private void OnCollisionStay(Collision other)
@@ -214,27 +221,44 @@ public class SockBehaviour : MonoBehaviour
 
                 }
             }
-            else
+            else if(other.gameObject.transform.position.y > 0.5)
             {
-                if (leftSock != null && isCarryingLeft() && other.gameObject != leftSock && other.gameObject != rightSock)
-                {
-                    dropSock(leftSock);
+                if(!shielded){ //sockPowers (Toto')
+                    if (leftSock != null && isCarryingLeft() && other.gameObject != leftSock && other.gameObject != rightSock)
+                    {
+                        dropSock(leftSock);
+                    }
+                    if (rightSock != null && isCarryingRight() && other.gameObject != leftSock && other.gameObject != rightSock)
+                    {
+                        dropSock(rightSock);
+                    }
+                }else{ //lazy implementation
+                    if (rightSock != null && isCarryingRight() && other.gameObject != leftSock && other.gameObject != rightSock)
+                    {
+                        dropSock(rightSock);
+                    }
                 }
-                if (rightSock != null && isCarryingRight() && other.gameObject != leftSock && other.gameObject != rightSock)
-                {
-                    dropSock(rightSock);
-                }
-
-                //sockPowers (Toto)
-                if(other.gameObject.transform.position.y > 0.5){
-                    Debug.Log("Dropped : "+other.gameObject.name);
+                //sockPowers (Toto')
+                 //to avoid colliding with a dropped sock
+                    Debug.Log("Hit by : "+other.gameObject.name);
                     if (System.String.Equals(other.gameObject.name, sockSpeed)){
                         Debug.Log("speed zeroed");
                         GetComponent<ThirdPersonCharacter>().setSpeed(0f);
                         coroutine = slowDown();
                         StartCoroutine(coroutine);
                     }
-                }
+                    if (System.String.Equals(other.gameObject.name, sockLimiter)){
+                        Debug.Log("cannot pick socks");
+                        canPick=false;
+                        coroutine = noSocks();
+                        StartCoroutine(coroutine);
+                    }
+                    if (System.String.Equals(other.gameObject.name, sockRange)){
+                        Debug.Log("cannot throw socks");
+                        canThrow=false;
+                        coroutine = noThrow();
+                        StartCoroutine(coroutine);
+                    }
             }
             
             
@@ -253,26 +277,30 @@ public class SockBehaviour : MonoBehaviour
     }
     void throwSock(GameObject sock, string carrying)
     {
-        Debug.Log(forwardForce);
-        Debug.Log(upForce);
-        sock.GetComponent<Transform>().parent = null;
-        Rigidbody rb = sock.GetComponent<Rigidbody>();
-        rb.freezeRotation = false;
-        rb.isKinematic = false;
-        rb.AddForce(transform.forward * forwardForce, ForceMode.Impulse);
-        rb.AddForce(transform.up * upForce, ForceMode.Impulse);
-        rb.useGravity = true;
+        if(canThrow){
+            Debug.Log(forwardForce);
+            Debug.Log(upForce);
+            sock.GetComponent<Transform>().parent = null;
+            Rigidbody rb = sock.GetComponent<Rigidbody>();
+            rb.freezeRotation = false;
+            rb.isKinematic = false;
+            rb.AddForce(transform.forward * (forwardForce*strength), ForceMode.Impulse);
+            rb.AddForce(transform.up * upForce, ForceMode.Impulse);
+            rb.useGravity = true;
 
-        sock.GetComponent<BoxCollider>().enabled = true;
-        if (carrying == "CarryingLeft")
-        {
-            leftBumperPressed = false;
+            sock.GetComponent<BoxCollider>().enabled = true;
+            if (carrying == "CarryingLeft")
+            {
+                leftBumperPressed = false;
+            }
+            else
+            {
+                rightBumperPressed = false;
+            }
+            GetComponent<Animator>().SetBool(carrying, false);
+        }else{
+            Debug.Log("you cannot throw socks");
         }
-        else
-        {
-            rightBumperPressed = false;
-        }
-        GetComponent<Animator>().SetBool(carrying, false);
     }
     public void pickUpLeftSock()
     {
@@ -307,14 +335,22 @@ public class SockBehaviour : MonoBehaviour
 
         GetComponent<Animator>().SetBool(carrying, true);      
         
-        //sockPowers (Toto)
+        //sockPowers (Toto')
         Debug.Log("Picked : "+sock.name);
         if (System.String.Equals(sock.name, sockSpeed)){
             Debug.Log("speed increase");
             GetComponent<ThirdPersonCharacter>().setSpeed(peakSpeed);
             
-                coroutine = GOSH();
-                StartCoroutine(coroutine);
+                /*coroutine = GOSH(); //easter egg enabler
+                StartCoroutine(coroutine);*/
+        }
+        if (System.String.Equals(sock.name, sockLimiter)){
+            Debug.Log("shield enabled");
+            shielded=true;
+        }
+        if (System.String.Equals(sock.name, sockRange)){
+            Debug.Log("ra(n)ge extended");
+            strength=2f;
         }
     }
 

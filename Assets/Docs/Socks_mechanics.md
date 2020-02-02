@@ -21,17 +21,17 @@
 
 
 
-Bonus 1: speed increase
-Malus 1: cannot move
+Bonus 1: speed increase                    [✓]
+Malus 1: cannot move                        [✓]
 
-Bonus 2: firing range extended
-Malus 2: cannot throw socks
+Bonus 2: if hit lose only one sock      [to test]
+Malus 2: cannot pick socks                [to test]
 
-Bonus 3: if hit lose only one sock
-Malus 3: cannot pick socks
+Bonus 3: firing range extended          [✓]
+Malus 3: cannot throw socks 			[to test]
 
 Bonus 4: double jump
 Malus 4: can walk only crouch
 
-Bonus 5: can carry three sock
-Malus 5: can carry only one sock at a time
+~~Bonus 5: can carry three sock~~
+~~Malus 5: can carry only one sock at a time~~
