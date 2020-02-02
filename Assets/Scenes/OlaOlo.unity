@@ -2681,7 +2681,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 536755998}
-  m_LocalRotation: {x: 0.19084719, y: -0.00033427385, z: 0.000064914486, w: 0.9816197}
+  m_LocalRotation: {x: 0.19084722, y: -0.0003343031, z: 0.00006492018, w: 0.9816197}
   m_LocalPosition: {x: -5.0280867, y: 6.2871113, z: -17.384396}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -3438,7 +3438,7 @@ BoxCollider:
   m_GameObject: {fileID: 763964226}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1920, y: 1080, z: 5.46}
   m_Center: {x: 0, y: -0.5, z: -9.868273e-12}
@@ -4323,7 +4323,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 55.495186
+  field of view: 49
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
@@ -4348,8 +4348,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1207090690}
-  m_LocalRotation: {x: -0.58090854, y: 0.029842628, z: -0.021358067, w: -0.81314117}
-  m_LocalPosition: {x: -0.23146963, y: 13.5288315, z: -3.9326258}
+  m_LocalRotation: {x: 0.19084722, y: -0.0003343031, z: 0.00006492018, w: 0.9816197}
+  m_LocalPosition: {x: 0.051055275, y: 2.2565408, z: 4.5596037}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4981,7 +4981,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1411402991}
-  m_LocalRotation: {x: -0.58090854, y: 0.029842628, z: -0.021358067, w: -0.81314117}
+  m_LocalRotation: {x: -0.55971247, y: 0.057912286, z: -0.0392933, w: -0.8257265}
   m_LocalPosition: {x: -5.3185563, y: 12.8459425, z: -14.213022}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -5120,8 +5120,10 @@ MonoBehaviour:
   - {fileID: 9050889031359410363, guid: 1560b27c6e1f7445586518df1ab4e928, type: 3}
   spawnPoint: {fileID: 0}
   anim: {fileID: 1876571546}
-  max_socks: 10
+  max_socks: 100
   radius: 2
+  meanGaussian: 200
+  gameIsPlaying: 0
 --- !u!4 &1429710456
 Transform:
   m_ObjectHideFlags: 0
@@ -6350,6 +6352,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6e72e45825841f4b9027958bb8ce653, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerPoints: {fileID: 1320741835}
   score: 0
 --- !u!1 &1495136613
 GameObject:
@@ -6741,6 +6744,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resizeSpeed: 0.5
   gameUI: {fileID: 664524708}
+  gameController: {fileID: 1429710453}
 --- !u!4 &1579241627 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5464758363144804291, guid: 81cb48e0ed66b064a82b4e40a26f37c9,
@@ -6765,6 +6769,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6e72e45825841f4b9027958bb8ce653, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerPoints: {fileID: 1495136613}
   score: 0
 --- !u!1001 &1731635927
 PrefabInstance:

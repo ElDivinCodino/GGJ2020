@@ -8,13 +8,14 @@ public class WMSuperRandomSpawner : MonoBehaviour {
     public GameObject spawnPoint;
     public Animator anim;
 
-    public int max_socks = 10;
+    public int max_socks = 200;
 
     public float radius = 2;
 
     int timer = 0;
 
     int randomInt, randomIntTimer;
+    public float meanGaussian = 2;
     Vector3 randomVec;
     Vector2 unitCircle;
     Vector3 unitCircle3d;
@@ -27,13 +28,15 @@ public class WMSuperRandomSpawner : MonoBehaviour {
 
     GameObject throw_it;
 
+    public bool gameIsPlaying = false;
+
     void Start() {
         spawnPoint = GameObject.FindGameObjectWithTag("spawnPoint");
     }
     
     // Update is called once per frame
     void Update() {
-        randomIntTimer = (int)NextGaussian(400,100);
+        randomIntTimer = (int)NextGaussian(meanGaussian,100);
         timer += 1;
         //check if too many socks in scene
         current_socks = GameObject.FindGameObjectsWithTag("Sock").Length;
@@ -44,7 +47,7 @@ public class WMSuperRandomSpawner : MonoBehaviour {
             {
                 randomInt = GetRandom(0, spawnees.Length);
                 check_sock = GameObject.Find(spawnees[randomInt].name+"(Clone)");
-            } while (check_sock != null);
+            } while (check_sock != null && gameIsPlaying);
 
             rand_forward = GetRandom(75, 200);
             rand_up = GetRandom(100, 400);
@@ -68,6 +71,10 @@ public class WMSuperRandomSpawner : MonoBehaviour {
     void SpawnRandom(int sign) {
         randomVec = GetRandomVector(spawnPoint.transform.position);
         throw_it = Instantiate(spawnees[randomInt], randomVec, spawnPoint.transform.rotation);
+        if (!gameIsPlaying)
+        {
+            throw_it.GetComponent<WMdestroyer>().enabled = true;
+        }
         throw_it.GetComponent<Rigidbody>().AddForce(sign * spawnPoint.transform.forward * rand_forward);
         throw_it.GetComponent<Rigidbody>().AddForce(spawnPoint.transform.up * rand_up);
     }
