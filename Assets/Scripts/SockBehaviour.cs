@@ -451,6 +451,7 @@ public class SockBehaviour : MonoBehaviour
             GetComponent<Animator>().SetBool(carrying, false);
 
             transform.GetComponent<AudioSource>().PlayOneShot(shot_sound);
+            shielded = true;
         }
         else{
             Debug.Log("you cannot throw socks");

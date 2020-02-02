@@ -371,7 +371,7 @@ InputManager:
     snap: 0
     invert: 0
     type: 2
-    axis: 3
+    axis: 4
     joyNum: 1
   - serializedVersion: 3
     m_Name: Left Trigger2
@@ -387,7 +387,7 @@ InputManager:
     snap: 0
     invert: 0
     type: 2
-    axis: 3
+    axis: 4
     joyNum: 2
   - serializedVersion: 3
     m_Name: Right Trigger
@@ -403,7 +403,7 @@ InputManager:
     snap: 0
     invert: 0
     type: 2
-    axis: 4
+    axis: 5
     joyNum: 1
   - serializedVersion: 3
     m_Name: Right Trigger2
@@ -419,7 +419,7 @@ InputManager:
     snap: 0
     invert: 0
     type: 2
-    axis: 4
+    axis: 5
     joyNum: 2
   - serializedVersion: 3
     m_Name: Left Bumper
