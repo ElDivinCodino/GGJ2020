@@ -33,6 +33,9 @@ public class SockBehaviour : MonoBehaviour
 
     public Animator starsAnim;
 
+
+    private AudioClip pickup_sound,shot_sound,colpito;
+
     public GameObject powerupUI;
 
     //sockPowers (Toto') ------------------------------------------------------------------
@@ -93,6 +96,11 @@ public class SockBehaviour : MonoBehaviour
         //Debug.Log(rightBumperInput);
         //Debug.Log(leftTriggerInput);
         //Debug.Log(rightTriggerInput);
+
+        pickup_sound = GameObject.FindGameObjectWithTag("GameController").GetComponent<AudioManagerFinal>().pickUpSound;
+        shot_sound = GameObject.FindGameObjectWithTag("GameController").GetComponent<AudioManagerFinal>().player_shot;
+        colpito = GameObject.FindGameObjectWithTag("GameController").GetComponent<AudioManagerFinal>().player_hit;
+
     }
 
     void Update()
@@ -359,11 +367,13 @@ public class SockBehaviour : MonoBehaviour
             }
             else if(other.gameObject.transform.position.y > 0.5)
             {
+                transform.GetComponent<AudioSource>().PlayOneShot(colpito);
                 if(!shielded)
                 { //sockPowers (Toto')
 
                     GetComponent<Animator>().SetTrigger("Hit");
 
+>>>>>>> c63c6e2eb82decdd1ca7298f0bdbcefdd5192d82
                     if (leftSock != null && isCarryingLeft() && other.gameObject != leftSock && other.gameObject != rightSock)
                     {
                         dropSock(leftSock);
@@ -440,7 +450,10 @@ public class SockBehaviour : MonoBehaviour
                 rightBumperPressed = false;
             }
             GetComponent<Animator>().SetBool(carrying, false);
-        }else{
+
+            transform.GetComponent<AudioSource>().PlayOneShot(shot_sound);
+        }
+        else{
             Debug.Log("you cannot throw socks");
         }
     }
@@ -517,6 +530,8 @@ public class SockBehaviour : MonoBehaviour
             Debug.Log("ra(n)ge extended");
             strength=2f;
         }
+
+        transform.GetComponent<AudioSource>().PlayOneShot(pickup_sound);
     }
 
     public bool isCarryingLeft()

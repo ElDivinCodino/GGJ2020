@@ -13,7 +13,14 @@ public class SceneManagement : MonoBehaviour
     public float timeLeft = 60;
     public int endScore = 2;
 
+    private AudioManagerFinal audio_managers;
+
     bool resize = false;
+
+    private void Start()
+    {
+        audio_managers = transform.GetComponent<AudioManagerFinal>();
+    }
 
     public void Update()
     {
@@ -39,7 +46,8 @@ public class SceneManagement : MonoBehaviour
             resize = true;
             gameUI.SetActive(true);
             gameController.GetComponent<WMSuperRandomSpawner>().gameIsPlaying = true;
-        }
+            audio_managers.PlayMusic();
+}
 
         if(resize && playButton.transform.parent.localScale.x > 0)
         {
