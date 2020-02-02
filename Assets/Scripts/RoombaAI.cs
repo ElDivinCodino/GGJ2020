@@ -23,6 +23,8 @@ public class RoombaAI : MonoBehaviour
         {
             body.Rotate(Vector3.up, speedRotation * Time.deltaTime);
         }
+        if (navMeshAgent.remainingDistance < 0.5f)
+            SetDestination();
     }
 
     private void SetDestination()

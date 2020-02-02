@@ -222,6 +222,10 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 				m_Animator.applyRootMotion = false;
 			}
 		}
-	
+		//sockPowers (Toto')
+		public void setSpeed(float speed) {
+			m_MoveSpeedMultiplier = speed;
+			Debug.Log("speed set to: "+speed);
+		}	
 	}
 }

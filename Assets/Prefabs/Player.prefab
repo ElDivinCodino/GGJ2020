@@ -1768,6 +1768,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 521b611700410be45810047f0a74e899, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  leftBumperInput: Left Bumper
+  rightBumperInput: Right Bumper
+  leftTriggerInput: Left Trigger
+  rightTriggerInput: Right Trigger
+  horizontalInput: Horizontal
+  verticalInput: Vertical
+  jumpInput: Jump
 --- !u!114 &5895007161326866818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1800,7 +1807,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd3ea1291117846d8aeadec0c46a0020, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftHand: {fileID: 5895007161707638997}
+  leftSock: {fileID: 0}
+  rightSock: {fileID: 0}
+  leftBumperInput: Left Bumper
+  rightBumperInput: Right Bumper
+  leftTriggerInput: Left Trigger
+  rightTriggerInput: Right Trigger
+  upForce: 0
+  forwardForce: 0
+  leftHand: {fileID: 0}
   rightHand: {fileID: 0}
 --- !u!1 &5895007161343879329
 GameObject:
