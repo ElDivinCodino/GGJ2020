@@ -84,6 +84,11 @@ public class SockBehaviour : MonoBehaviour
         rightBumperInput += player;
         leftTriggerInput += player;
         rightTriggerInput += player;
+        //Debug.Log("Player: " + player);
+        //Debug.Log(leftBumperInput);
+        //Debug.Log(rightBumperInput);
+        //Debug.Log(leftTriggerInput);
+        //Debug.Log(rightTriggerInput);
     }
 
     void Update()
@@ -134,9 +139,10 @@ public class SockBehaviour : MonoBehaviour
 
             }
         }
-        else
+        else 
         {
-            lSockImg.GetComponent<RawImage>().color = new Color(0,0,0,0);
+            if (lSockImg != null)
+                lSockImg.GetComponent<RawImage>().color = new Color(0,0,0,0);
         }
         if (isCarryingRight())
         {
@@ -148,10 +154,10 @@ public class SockBehaviour : MonoBehaviour
                 case "Sock_black(Clone)":
                     rSockImg.GetComponent<RawImage>().color = Color.black;
                     break;
-                case "Sock_pink(Clone)":
+               case "Sock_pink(Clone)":
                     rSockImg.GetComponent<RawImage>().color = new Color(252f, 15f, 192f);
                     break;
-                case "Sock_green(Clone)":
+                case "Sock_green(C== 1)":
                     rSockImg.GetComponent<RawImage>().color = Color.green;
                    break;
                 case "Sock_yellow(Clone)":
@@ -183,7 +189,9 @@ public class SockBehaviour : MonoBehaviour
         }
         else
         {
-            rSockImg.GetComponent<RawImage>().color = new Color(0, 0, 0, 0);
+            if (rSockImg != null)
+                rSockImg.GetComponent<RawImage>().color = new Color(0, 0, 0, 0);
+
         }
 
        
@@ -215,42 +223,46 @@ public class SockBehaviour : MonoBehaviour
     /* ----------------- */
     void testGamePad()
     {
-        if (Input.GetJoystickNames().Length > 0 )
+        //if (Input.GetJoystickNames().Length > 0 )
+        //{
+        //    Debug.Log(Input.GetJoystickNames()[0]);
+        //    Debug.Log(Input.GetJoystickNames()[1]);
+        //}
+        if (Input.GetAxis(leftTriggerInput) == 1)
         {
-            Debug.Log(Input.GetJoystickNames()[0]);
-            Debug.Log(Input.GetJoystickNames()[1]);
+            Debug.Log(leftTriggerInput);
         }
-        if (Input.GetAxis("Left Trigger") == 1)
+        else if (Input.GetAxis(rightTriggerInput)== 1)
         {
-            Debug.Log("Left Trigger");
+            Debug.Log(rightTriggerInput);
         }
-        else if (Input.GetAxis("Right Trigger") == 1)
+        else if (Input.GetButton(rightBumperInput))
         {
-            Debug.Log("Right Trigger");
+            Debug.Log(rightBumperInput);
         }
-        else if (Input.GetButton("Right Bumper"))
+        else if (Input.GetButton(leftBumperInput))
         {
-            Debug.Log("Right Bumper");
+            Debug.Log(leftBumperInput);
         }
-        else if (Input.GetButton("Left Bumper"))
+        else if (Input.GetButton("Cross" + player))
         {
-            Debug.Log("Left Bumper");
-        }
-        else if (Input.GetButton("Cross"))
-        {
-            Debug.Log("Cross");
+            Debug.Log("Cross" + player);
         }
         else if (Input.GetButton("Square"+player))
         {
             Debug.Log("Square"+" "+player);
         }
-        else if (Input.GetButton("Circle"))
+        else if (Input.GetButton("Circle" + player))
         {
-            Debug.Log("Circle");
+            Debug.Log("Circle" + player);
         }
-        else if (Input.GetButton("Triangle"))
+        else if (Input.GetButton("Triangle" + player))
         {
-            Debug.Log("Triangle");
+            Debug.Log("Triangle" + player);
+        }
+        else  if (Input.GetButton("Jump"+player))
+        {
+            Debug.Log("Jump" + player);
         }
     }
     /* ----------------- */
@@ -287,15 +299,16 @@ public class SockBehaviour : MonoBehaviour
 
     private void OnCollisionStay(Collision other)
     {
-        if(leftTriggerInput == "Left Trigger" && rightTriggerInput == "Right Trigger")
-        {
-            leftTrigger = Input.GetAxis(leftTriggerInput);
-            rightTrigger = Input.GetAxis(rightTriggerInput);
-        }
-        else
+        if (leftTriggerInput == "Left Trigger PC" && rightTriggerInput == "Right Trigger PC")
         {
             leftTrigger = System.Convert.ToSingle(Input.GetKey(KeyCode.J));
             rightTrigger = System.Convert.ToSingle(Input.GetKey(KeyCode.K));
+            
+        }
+        else
+        {
+            leftTrigger = Input.GetAxis(leftTriggerInput);
+            rightTrigger = Input.GetAxis(rightTriggerInput);
         }
         if (other.gameObject.tag == "Sock")
         {
