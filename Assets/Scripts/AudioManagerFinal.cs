@@ -6,7 +6,7 @@ public class AudioManagerFinal : MonoBehaviour
 {
 
     private AudioSource Music,WMsound;
-    public AudioClip music,roombaMusic,wm_shot;
+    public AudioClip music,roombaMusic,wm_shot, pickUpSound, player_shot, player_hit;
 
     void Start()
     {

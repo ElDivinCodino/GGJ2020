@@ -33,6 +33,8 @@ public class SockBehaviour : MonoBehaviour
 
     public Animator starsAnim;
 
+    private AudioClip pickup_sound,shot_sound,colpito;
+
     //sockPowers (Toto') ------------------------------------------------------------------
     float malusDuration=3.0f;
     private IEnumerator coroutine;
@@ -91,6 +93,11 @@ public class SockBehaviour : MonoBehaviour
         //Debug.Log(rightBumperInput);
         //Debug.Log(leftTriggerInput);
         //Debug.Log(rightTriggerInput);
+
+        pickup_sound = GameObject.FindGameObjectWithTag("GameController").GetComponent<AudioManagerFinal>().pickUpSound;
+        shot_sound = GameObject.FindGameObjectWithTag("GameController").GetComponent<AudioManagerFinal>().player_shot;
+        colpito = GameObject.FindGameObjectWithTag("GameController").GetComponent<AudioManagerFinal>().player_hit;
+
     }
 
     void Update()
@@ -333,7 +340,8 @@ public class SockBehaviour : MonoBehaviour
             }
             else if(other.gameObject.transform.position.y > 0.5)
             {
-                if(!shielded){ //sockPowers (Toto')
+                transform.GetComponent<AudioSource>().PlayOneShot(colpito);
+                if (!shielded){ //sockPowers (Toto')
                     if (leftSock != null && isCarryingLeft() && other.gameObject != leftSock && other.gameObject != rightSock)
                     {
                         dropSock(leftSock);
@@ -410,7 +418,10 @@ public class SockBehaviour : MonoBehaviour
                 rightBumperPressed = false;
             }
             GetComponent<Animator>().SetBool(carrying, false);
-        }else{
+
+            transform.GetComponent<AudioSource>().PlayOneShot(shot_sound);
+        }
+        else{
             Debug.Log("you cannot throw socks");
         }
     }
@@ -487,6 +498,8 @@ public class SockBehaviour : MonoBehaviour
             Debug.Log("ra(n)ge extended");
             strength=2f;
         }
+
+        transform.GetComponent<AudioSource>().PlayOneShot(pickup_sound);
     }
 
     public bool isCarryingLeft()
