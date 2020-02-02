@@ -2337,8 +2337,8 @@ GameObject:
   - component: {fileID: 453299799}
   - component: {fileID: 453299798}
   - component: {fileID: 453299797}
-  m_Layer: 0
-  m_Name: Wall
+  m_Layer: 9
+  m_Name: InvisibleWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2693,7 +2693,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 536755998}
-  m_LocalRotation: {x: 0.19084719, y: -0.00033427385, z: 0.000064914486, w: 0.9816197}
+  m_LocalRotation: {x: 0.19084722, y: -0.0003343031, z: 0.00006492018, w: 0.9816197}
   m_LocalPosition: {x: -5.0280867, y: 6.2871113, z: -17.384396}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -4347,7 +4347,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 55.4772
+  field of view: 49
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
@@ -4372,8 +4372,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1207090690}
-  m_LocalRotation: {x: -0.58090854, y: 0.029842619, z: -0.02135807, w: -0.81314117}
-  m_LocalPosition: {x: -0.23146963, y: 13.5288315, z: -3.9326258}
+  m_LocalRotation: {x: 0.19084722, y: -0.0003343031, z: 0.00006492018, w: 0.9816197}
+  m_LocalPosition: {x: 0.051055275, y: 2.2565408, z: 4.5596037}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -5005,7 +5005,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1411402991}
-  m_LocalRotation: {x: -0.58090854, y: 0.029842619, z: -0.02135807, w: -0.81314117}
+  m_LocalRotation: {x: -0.58090913, y: 0.02981771, z: -0.021340262, w: -0.8131421}
   m_LocalPosition: {x: -5.3185563, y: 12.8459425, z: -14.213022}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
