@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityStandardAssets.Characters.ThirdPerson;
 
 public class scoreManager : MonoBehaviour
 {
@@ -35,6 +36,10 @@ public class scoreManager : MonoBehaviour
             rightSock.GetComponent<WMdestroyer>().Destruction();
             score += 2;
             playerPoints.GetComponent<TMPro.TextMeshProUGUI>().text = score.ToString();
+
+            GetComponent<ThirdPersonCharacter>().setSpeed(1f);
+            GetComponent<SockBehaviour>().shielded = false;
+            GetComponent<SockBehaviour>().strength = 1f;
         }
     }
 }

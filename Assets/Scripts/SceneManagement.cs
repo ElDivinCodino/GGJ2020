@@ -13,9 +13,12 @@ public class SceneManagement : MonoBehaviour
     public float timeLeft = 60;
     public int endScore = 2;
 
+    public GameObject endScoreLabel, backGroundPanel;
+
     private AudioManagerFinal audio_managers;
 
     bool resize = false;
+    public bool gameEnded = false;
 
     private void Start()
     {
@@ -24,6 +27,11 @@ public class SceneManagement : MonoBehaviour
 
     public void Update()
     {
+        if (gameEnded && Input.GetButton("Cross"))
+        {
+            SceneManager.LoadScene(0);
+        }
+
         if(player1.GetComponent<scoreManager>().score >= endScore || 
             player2.GetComponent<scoreManager>().score >= endScore ||
             timeLeft <= 0)
@@ -33,7 +41,7 @@ public class SceneManagement : MonoBehaviour
 
         timeLeft -= Time.deltaTime;
         timeLabel.GetComponent<TMPro.TextMeshProUGUI>().text = "Time Left: " + Mathf.Floor(timeLeft/60) + ":" + Mathf.RoundToInt(timeLeft % 60);
-        if (Input.GetButton("Fire1") && gameController.GetComponent<WMSuperRandomSpawner>().gameIsPlaying == false)
+        if (Input.GetButton("Cross") && gameController.GetComponent<WMSuperRandomSpawner>().gameIsPlaying == false)
         {
             GameObject[] socks = GameObject.FindGameObjectsWithTag("Sock");
             foreach(GameObject sock in socks)
@@ -55,7 +63,7 @@ public class SceneManagement : MonoBehaviour
             playButton.transform.parent.localScale = scale;
         }
         else if (resize)
-        {
+        {   
             resize = false;
         }
 
@@ -63,6 +71,10 @@ public class SceneManagement : MonoBehaviour
 
     public void EndGame()
     {
-        SceneManager.LoadScene(0);
+        endScoreLabel.SetActive(true);
+        endScoreLabel.GetComponent<TMPro.TextMeshProUGUI>().text = player1.GetComponent<scoreManager>().score + " - " + player2.GetComponent<scoreManager>().score;
+        backGroundPanel.SetActive(false);
+        gameEnded = true;
     }
+
 }

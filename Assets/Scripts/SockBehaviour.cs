@@ -46,10 +46,10 @@ public class SockBehaviour : MonoBehaviour
     float peakSpeed=5f;
 
     String sockLimiter="Sock_red(Clone)"; //only loose one/cannot pick socks
-    bool canPick=true, shielded=false;
+    public bool canPick=true, shielded=false;
 
     String sockRange="Sock_green(Clone)"; //range extended/cannot trow
-    float strength=1f;
+    public float strength=1f;
     bool canThrow=true;
 
     /*Sock_orange--> doppio salto
