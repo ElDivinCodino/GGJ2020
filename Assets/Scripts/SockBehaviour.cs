@@ -367,13 +367,12 @@ public class SockBehaviour : MonoBehaviour
             }
             else if(other.gameObject.transform.position.y > 0.5)
             {
-                transform.GetComponent<AudioSource>().PlayOneShot(colpito);
                 if(!shielded)
                 { //sockPowers (Toto')
 
                     GetComponent<Animator>().SetTrigger("Hit");
+                    transform.GetComponent<AudioSource>().PlayOneShot(colpito);
 
->>>>>>> c63c6e2eb82decdd1ca7298f0bdbcefdd5192d82
                     if (leftSock != null && isCarryingLeft() && other.gameObject != leftSock && other.gameObject != rightSock)
                     {
                         dropSock(leftSock);
