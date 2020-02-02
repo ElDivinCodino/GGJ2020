@@ -1,1 +1,1 @@
-copy /Y ProjectSettings\InputManager_Win.asset ProjectSettings\InputManager.asset
+copy /Y ProjectSettings\InputManager.asset_WINDOWS ProjectSettings\InputManager.asset
