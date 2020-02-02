@@ -9,13 +9,21 @@ public class SceneManagement : MonoBehaviour
 {
     public float resizeSpeed;
     public GameObject gameUI, gameController, playButton;
-    public GameObject timeLabel, startingCanvas;
+    public GameObject timeLabel, startingCanvas, player1, player2;
     public float timeLeft = 60;
+    public int endScore = 2;
 
     bool resize = false;
 
     public void Update()
     {
+        if(player1.GetComponent<scoreManager>().score >= endScore || 
+            player2.GetComponent<scoreManager>().score >= endScore ||
+            timeLeft <= 0)
+        {
+            EndGame();
+        }
+
         timeLeft -= Time.deltaTime;
         timeLabel.GetComponent<TMPro.TextMeshProUGUI>().text = "Time Left: " + Mathf.Floor(timeLeft/60) + ":" + Mathf.RoundToInt(timeLeft % 60);
         if (Input.GetButton("Fire1") && gameController.GetComponent<WMSuperRandomSpawner>().gameIsPlaying == false)
@@ -43,5 +51,10 @@ public class SceneManagement : MonoBehaviour
             resize = false;
         }
 
+    }
+
+    public void EndGame()
+    {
+        SceneManager.LoadScene(0);
     }
 }
